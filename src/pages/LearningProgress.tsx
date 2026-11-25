@@ -45,7 +45,7 @@ export function LearningProgress() {
               <strong>
                 {done.length}/{SCENARIOS.length}
               </strong>
-              <span>مواقف مكتملة</span>
+              <span>تدريبات مكتملة</span>
             </div>
             <div className="big-stat">
               <strong>{decisions ? Math.round((bestFirst / decisions) * 100) : 0}%</strong>
@@ -53,7 +53,7 @@ export function LearningProgress() {
             </div>
             <div className="big-stat">
               <strong>{decisions}</strong>
-              <span>قرارًا حواريًا</span>
+              <span>مسألة نحوية</span>
             </div>
           </div>
           <div className="results-body">
@@ -61,7 +61,7 @@ export function LearningProgress() {
               <h2>المهارات</h2>
               {skill.size === 0 ? (
                 <p className="muted">
-                  أكمل موقفًا واحدًا على الأقل لتظهر مهاراتك هنا. <Link to="/adults/library">ابدأ موقفًا</Link>
+                  أكمل تدريبًا واحدًا على الأقل لتظهر مهاراتك هنا. <Link to="/adults/library">ابدأ تدريبًا</Link>
                 </p>
               ) : (
                 <>
@@ -74,12 +74,12 @@ export function LearningProgress() {
                       </li>
                     ))}
                   </ul>
-                  {weakest && <p className="tip">اقتراح: ركّز في محاولتك القادمة على مهارة «{SKILL_LABEL[weakest[0]]}»، واقرأ بطاقة السياق قبل الاختيار.</p>}
+                  {weakest && <p className="tip">اقتراح: ركّز في محاولتك القادمة على مهارة «{SKILL_LABEL[weakest[0]]}»، وراجع القاعدة قبل أن تكتب.</p>}
                 </>
               )}
             </div>
             <div className="panel">
-              <h2>المواقف</h2>
+              <h2>التدريبات النحوية</h2>
               <ul className="sc-progress">
                 {SCENARIOS.map((sc) => {
                   const p = s.scenarios[sc.id];

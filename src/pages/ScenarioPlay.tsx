@@ -12,8 +12,8 @@ export function ScenarioPlay({ id }: { id: string }) {
   if (lockedBy)
     return (
       <div className="container section center">
-        <h1>هذا الموقف مقفل</h1>
-        <p>أكمل موقف «{lockedBy.title}» ليُفتح.</p>
+        <h1>هذا التدريب مقفل</h1>
+        <p>أكمل تدريب «{lockedBy.title}» ليُفتح.</p>
         <Link to={`/adults/scenario/${lockedBy.id}`} className="btn btn-primary">
           اذهب إلى «{lockedBy.title}»
         </Link>

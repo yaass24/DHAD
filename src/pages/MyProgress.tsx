@@ -40,7 +40,7 @@ export function MyProgress() {
               <strong>
                 {scenariosDone}/{SCENARIOS.length}
               </strong>
-              <span>مواقف مكتملة</span>
+              <span>تدريبات مكتملة</span>
             </div>
             <div className="big-stat">
               <Icon name="medal" size={32} />
@@ -70,7 +70,7 @@ export function MyProgress() {
               </ul>
             </div>
             <div className="panel">
-              <h2>مواقف العمل</h2>
+              <h2>التدريبات النحوية</h2>
               <ul className="sc-progress">
                 {SCENARIOS.map((sc) => {
                   const p = s.scenarios[sc.id];

@@ -12,6 +12,7 @@ import { CAST } from '../data/characters';
 import { Reveal } from '../components/Reveal';
 import { ScrollLine } from '../components/ScrollLine';
 import { LESSONS, getLesson } from '../data/lessons';
+import { EMAILS } from '../data/emails';
 import { PHONE_APP, useMedia } from '../utils/useMedia';
 
 function ContinueCard() {
@@ -144,7 +145,7 @@ export function Home() {
             <h1>
               تعلّم العربية... <span className="hl">وعِش الحكاية!</span>
             </h1>
-            <p className="hero-sub">في ضاد، كل كلمة تُكمل قصة، وكل اختيار يفتح موقفًا جديدًا. اكتشف العربية الفصحى من خلال قصص مصوّرة وحوارات تفاعلية تناسب الصغار والكبار.</p>
+            <p className="hero-sub">في ضاد، كل كلمة تُكمل قصة، وكل إجابة تفتح ما بعدها. اكتشف العربية الفصحى من خلال قصص مصوّرة وتدريبات تفاعلية تناسب الصغار والكبار.</p>
             <div className="hero-ctas">
               <Link to="/start" className="btn btn-sun btn-lg">
                 ابدأ اللعب <Icon name="play" size={18} filled />
@@ -193,8 +194,8 @@ export function Home() {
                 variant="kids"
               title="حكايات ضاد"
               subtitle="قصص مصوّرة للصغار"
-              description="انطلق مع شخصيات ضاد في حكايات ممتعة، وأكمل الحوارات بالكلمات المناسبة."
-              meta={`${STORIES.length} حكايات · ${STORIES.reduce((n, s) => n + s.scenes.length, 0)} مشهدًا تفاعليًا`}
+              description="انطلق مع ليان وخالد ونورة، وأكمل الحوار بالكلمة المناسبة في كل مشهد."
+              meta={`${STORIES.length} قصص · ${STORIES.reduce((n, s) => n + s.scenes.length, 0)} مشهدًا تفاعليًا`}
               cta="ابدأ الحكايات"
               to="/kids"
                 art={<KidScene background="library" characters={[{ id: 'noura', expression: 'happy', x: 300 }, { id: 'layan', expression: 'excited', x: 500, flip: true }]} label="نورة وليان في المكتبة" />}
@@ -204,9 +205,9 @@ export function Home() {
               <ExperienceCard
                 variant="adults"
               title="ضاد للكبار"
-              subtitle="تدريبات نحوية ودروس بلاغة"
-              description="اختر الصياغة الصحيحة في جمل من العمل واعرف سبب إعرابها، وتعلّم السجع والطباق والتشبيه والكناية بشواهدها."
-              meta={`${SCENARIOS.length} تدريبات نحوية · ${LESSONS.length} دروس بلاغة`}
+              subtitle="تدريب لغوي للكبار"
+              description="اكتب الكلمة الناقصة في جمل من العمل واعرف سبب إعرابها، وتعلّم أساليب البلاغة، واكتب رسائلك المهنية."
+              meta={`${SCENARIOS.length} تدريبات · ${LESSONS.length} دروس · ${EMAILS.length} رسائل`}
               cta="ابدأ التدريب"
               to="/adults"
                 art={<AdultStage backdrop="office" speaker="muna" mood="smile" label="مديرة الفريق ترحّب بك" />}

@@ -30,7 +30,7 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
       </p>
       <div className="card-meta">
         <span className="muted">
-          <Icon name="chat" size={15} /> {scenario.decisions.length} قرارات
+          <Icon name="chat" size={15} /> {scenario.decisions.length} مسائل
         </span>
         {done && (
           <span className="result-chip">
@@ -45,10 +45,10 @@ export function ScenarioCard({ scenario }: { scenario: Scenario }) {
       </div>
       {inProgress && <ProgressBar value={p!.currentStep} max={scenario.decisions.length} label={'تقدّمك في ' + scenario.title} />}
       {lockedBy ? (
-        <p className="lock-note">أكمل موقف «{lockedBy.title}» ليُفتح هذا الموقف.</p>
+        <p className="lock-note">أكمل تدريب «{lockedBy.title}» ليُفتح هذا التدريب.</p>
       ) : (
         <Link to={`/adults/scenario/${scenario.id}`} className="btn btn-primary">
-          {inProgress ? 'تابع الموقف' : done ? 'أعد المحاولة' : 'ابدأ الموقف'} <Icon name="next" size={18} />
+          {inProgress ? 'تابع التدريب' : done ? 'أعد المحاولة' : 'ابدأ التدريب'} <Icon name="next" size={18} />
         </Link>
       )}
     </article>

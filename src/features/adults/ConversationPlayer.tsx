@@ -171,7 +171,7 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
   return (
     <div className="player adults-player" style={{ '--accent': '#245742' } as CSSProperties}>
       <header className="player-top" style={{ '--progress': (step + (chosen ? 1 : 0)) / scenario.decisions.length } as CSSProperties}>
-        <Link to={`/adults/scenario/${scenario.id}`} className="icon-btn" aria-label="الخروج من الموقف (يُحفظ تقدّمك)">
+        <Link to={`/adults/scenario/${scenario.id}`} className="icon-btn" aria-label="الخروج من التدريب (يُحفظ تقدّمك)">
           <Icon name="back" />
         </Link>
         <div className="player-title">
@@ -181,9 +181,9 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
           </span>
         </div>
         <div className="player-progress">
-          <ProgressBar value={step + (chosen ? 1 : 0)} max={scenario.decisions.length} label="تقدّمك في الموقف" />
+          <ProgressBar value={step + (chosen ? 1 : 0)} max={scenario.decisions.length} label="تقدّمك في التدريب" />
         </div>
-        <span className="score score-adult" aria-label={`نقاط هذا الموقف ${score.points} من ${score.max}`}>
+        <span className="score score-adult" aria-label={`نقاط هذا التدريب ${score.points} من ${score.max}`}>
           <Icon name="target" size={18} /> {score.points}/{score.max}
         </span>
         <SoundToggle compact />

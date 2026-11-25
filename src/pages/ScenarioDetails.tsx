@@ -28,7 +28,7 @@ export function ScenarioDetails({ id }: { id: string }) {
       <section className="details details-adult">
         <div className="container details-inner">
           <Link to="/adults/library" className="back-link">
-            <Icon name="back" size={18} /> مكتبة المواقف
+            <Icon name="back" size={18} /> كل التدريبات
           </Link>
           <div className="details-grid">
             <div className="details-art">
@@ -37,7 +37,7 @@ export function ScenarioDetails({ id }: { id: string }) {
             <div className="details-copy">
               <div className="card-meta">
                 <LevelBadge level={sc.level} />
-                <span className="muted">{sc.decisions.length} قرارات · نحو {sc.decisions.length * 2} دقائق</span>
+                <span className="muted">{sc.decisions.length} مسائل · نحو {sc.decisions.length * 2} دقائق</span>
               </div>
               <h1>{sc.title}</h1>
               <p className="lead">{sc.summary}</p>
@@ -81,7 +81,7 @@ export function ScenarioDetails({ id }: { id: string }) {
               )}
               {lockedBy ? (
                 <p className="lock-note">
-                  <Icon name="lock" size={16} /> هذا الموقف مقفل. أكمل موقف «{lockedBy.title}» أولًا. <Link to={`/adults/scenario/${lockedBy.id}`}>اذهب إليه</Link>
+                  <Icon name="lock" size={16} /> هذا التدريب مقفل. أكمل تدريب «{lockedBy.title}» أولًا. <Link to={`/adults/scenario/${lockedBy.id}`}>اذهب إليه</Link>
                 </p>
               ) : (
                 <div className="details-actions">
@@ -96,7 +96,7 @@ export function ScenarioDetails({ id }: { id: string }) {
                     </>
                   ) : (
                     <button type="button" className="btn btn-primary btn-lg" onClick={() => start(true)}>
-                      <Icon name="play" size={18} filled /> {done ? 'أعد المحاولة' : 'ابدأ الموقف'}
+                      <Icon name="play" size={18} filled /> {done ? 'أعد المحاولة' : 'ابدأ التدريب'}
                     </button>
                   )}
                 </div>

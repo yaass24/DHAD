@@ -81,7 +81,7 @@ export function Settings() {
             </h2>
             <h3 className="h-small">حكايات ضاد</h3>
             <LevelSelector name="set-kids" value={s.kidsLevel} hints={KIDS_LEVEL_HINT} onChange={(level) => dispatch({ type: 'setLevel', audience: 'kids', level })} />
-            <h3 className="h-small">مواقف العمل (للكبار)</h3>
+            <h3 className="h-small">التدريبات النحوية (للكبار)</h3>
             <LevelSelector name="set-adults" value={s.adultsLevel} hints={ADULTS_LEVEL_HINT} onChange={(level) => dispatch({ type: 'setLevel', audience: 'adults', level })} />
           </div>
 
@@ -89,7 +89,7 @@ export function Settings() {
             <h2>
               <Icon name="trash" /> إعادة ضبط التقدّم
             </h2>
-            <p>يمسح الحكايات والمواقف المكتملة، والنقاط، والإنجازات، والمشهد المحفوظ. تبقى إعدادات الصوت والحركة كما هي.</p>
+            <p>يمسح الحكايات والتدريبات المكتملة، والنقاط، والإنجازات، والمشهد المحفوظ. تبقى إعدادات الصوت والحركة كما هي.</p>
             <button type="button" className="btn btn-danger" onClick={() => setConfirm(true)}>
               إعادة ضبط التقدّم
             </button>
@@ -132,7 +132,7 @@ export function Settings() {
         }
       >
         <p>
-          ستفقد {s.points} نقطة، وكل الحكايات والمواقف المكتملة، و{Object.keys(s.achievements).length} إنجازات. لا يمكن التراجع عن هذه الخطوة.
+          ستفقد {s.points} نقطة، وكل الحكايات والتدريبات المكتملة، و{Object.keys(s.achievements).length} إنجازات. لا يمكن التراجع عن هذه الخطوة.
         </p>
       </Modal>
     </>

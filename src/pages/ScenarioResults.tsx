@@ -26,9 +26,9 @@ export function ScenarioResults({ id }: { id: string }) {
   if (!p || p.timesCompleted === 0)
     return (
       <div className="container section center">
-        <h1>لم يكتمل هذا الموقف بعد</h1>
+        <h1>لم يكتمل هذا التدريب بعد</h1>
         <Link to={`/adults/scenario/${id}`} className="btn btn-primary">
-          اذهب إلى الموقف
+          اذهب إلى التدريب
         </Link>
       </div>
     );
@@ -58,7 +58,7 @@ export function ScenarioResults({ id }: { id: string }) {
             </div>
           </div>
           <div>
-            <p className="eyebrow eyebrow-light">نتيجة الموقف</p>
+            <p className="eyebrow eyebrow-light">نتيجة التدريب</p>
             <h1>{sc.title}</h1>
             <h2 className="verdict">{v.title}</h2>
             <p className="lead">{v.text}</p>
@@ -146,14 +146,14 @@ export function ScenarioResults({ id }: { id: string }) {
             </button>
             {nextSc && (
               <Link to={`/adults/scenario/${nextSc.id}`} className="btn btn-primary">
-                الموقف التالي: {nextSc.title} <Icon name="next" size={18} />
+                التدريب التالي: {nextSc.title} <Icon name="next" size={18} />
               </Link>
             )}
             <Link to="/adults/progress" className="btn btn-outline">
               <Icon name="chart" size={18} /> تقدّمي التعليمي
             </Link>
             <Link to="/adults/library" className="btn btn-text">
-              مكتبة المواقف
+              كل التدريبات
             </Link>
           </div>
         </div>

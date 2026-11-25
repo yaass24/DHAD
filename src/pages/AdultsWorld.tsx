@@ -9,7 +9,7 @@ import { ProgressBar } from '../components/ProgressBar';
 
 /**
  * Adults: one hero, then two clear tracks.
- *  1) مواقف العمل — conversations, choose the most suitable wording.
+ *  1) تدريبات النحو — typed blanks on sentences from workplace documents.
  *  2) دروس البلاغة — short lessons on rhetorical devices.
  */
 export function AdultsWorld() {
@@ -24,7 +24,7 @@ export function AdultsWorld() {
           <div>
             <p className="eyebrow eyebrow-light">ضاد للكبار</p>
             <h1>عربيتك... بقواعدها</h1>
-            <p className="lead">مساران: تدريبات نحوية على جمل من العمل تختار فيها الصياغة الصحيحة وتعرف سبب الإعراب، ودروس بلاغة بشواهد من القرآن والحديث والشعر وتطبيقها في الكتابة المهنية.</p>
+            <p className="lead">ثلاثة مسارات على جمل من التقارير والمراسلات، لكل إجابة فيها سببها.</p>
             <div className="world-stats">
               <span>
                 <Icon name="chat" /> {scDone} / {SCENARIOS.length} تدريبات
@@ -38,7 +38,7 @@ export function AdultsWorld() {
             </div>
           </div>
           <div className="adults-hero-art world-art">
-            <AdultStage backdrop="boardroom" speaker="reem" mood="smile" label="مشهد من موقف التفاوض" />
+            <AdultStage backdrop="boardroom" speaker="reem" mood="smile" label="مشهد من بيئة العمل" />
           </div>
         </div>
       </section>
@@ -54,18 +54,18 @@ export function AdultsWorld() {
                 <Icon name="chat" size={26} />
               </span>
               <h3>تدريبات النحو</h3>
-              <p>المثنى وجمع المذكر السالم، وعلامات النصب والجر، والعدد والتمييز والهمزة، وإعراب الجمل والممنوع من الصرف — على جمل حقيقية من التقارير والمراسلات.</p>
+              <p>المثنى وجمع المذكر السالم، وعلامات النصب والجر، والعدد والتمييز والهمزة، وإعراب الجمل والممنوع من الصرف.</p>
               <ul className="track-points">
                 <li>
                   <Icon name="check" size={16} /> {SCENARIOS.length} تدريبات · {SCENARIOS.reduce((n, x) => n + x.decisions.length, 0)} مسألة
                 </li>
                 <li>
-                  <Icon name="check" size={16} /> لكل خيار سبب إعرابي مشروح
+                  <Icon name="check" size={16} /> لكل إجابة سبب إعرابي مشروح
                 </li>
               </ul>
-              <ProgressBar value={scDone} max={SCENARIOS.length} label="تقدّمك في المواقف" />
+              <ProgressBar value={scDone} max={SCENARIOS.length} label="تقدّمك في التدريبات" />
               <Link to="/adults/library" className="btn btn-primary btn-lg">
-                افتح التدريبات <Icon name="next" size={18} />
+                ابدأ التدريبات <Icon name="next" size={18} />
               </Link>
             </article>
             <article className="track-card">
@@ -73,7 +73,7 @@ export function AdultsWorld() {
                 <Icon name="sparkle" size={26} />
               </span>
               <h3>دروس البلاغة</h3>
-              <p>السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية: شرح بشواهد، وموضع كل أسلوب في الكتابة المهنية، ثم أسئلة تطبيقية.</p>
+              <p>السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية، وموضع كل أسلوب في الكتابة المهنية.</p>
               <ul className="track-points">
                 <li>
                   <Icon name="check" size={16} /> {LESSONS.length} دروس · {LESSONS.reduce((n, x) => n + x.questions.length, 0)} سؤالًا
@@ -84,7 +84,7 @@ export function AdultsWorld() {
               </ul>
               <ProgressBar value={lsDone} max={LESSONS.length} label="تقدّمك في دروس البلاغة" />
               <Link to="/adults/rhetoric" className="btn btn-primary btn-lg">
-                افتح الدروس <Icon name="next" size={18} />
+                ابدأ الدروس <Icon name="next" size={18} />
               </Link>
             </article>
             <article className="track-card">
@@ -92,7 +92,7 @@ export function AdultsWorld() {
                 <Icon name="book" size={26} />
               </span>
               <h3>اكتب رسالة</h3>
-              <p>طلب إجازة، ومتابعة طلب، واعتذار عن تأخير. تكتب الرسالة بنفسك، ثم يفحصها ضاد على قائمة تدقيق محدّدة مسبقًا.</p>
+              <p>طلب إجازة، ومتابعة طلب، واعتذار عن تأخير — تكتبها بنفسك ثم تُراجَع.</p>
               <ul className="track-points">
                 <li>
                   <Icon name="check" size={16} /> {EMAILS.length} رسائل · عناصر مطلوبة وأخطاء شائعة
