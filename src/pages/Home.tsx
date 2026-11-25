@@ -66,7 +66,7 @@ function ContinueCard() {
       <span>
         <small>تابع من حيث توقفت</small>
         <strong>
-          {sc.title} · القرار {Math.min(p.currentStep + 1, sc.decisions.length)} من {sc.decisions.length}
+          {sc.title} · المسألة {Math.min(p.currentStep + 1, sc.decisions.length)} من {sc.decisions.length}
         </strong>
       </span>
       <Icon name="next" />
