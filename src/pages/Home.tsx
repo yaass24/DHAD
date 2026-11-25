@@ -191,9 +191,9 @@ export function Home() {
             <ExperienceCard
               variant="adults"
               title="ضاد للكبار"
-              subtitle="مواقف العمل ودروس البلاغة"
-              description="اختر الصياغة الأنسب في محادثات من بيئة العمل، وتعلّم السجع والطباق والتشبيه والكناية بشواهدها."
-              meta={`${SCENARIOS.length} مواقف · ${LESSONS.length} دروس بلاغة`}
+              subtitle="تدريبات نحوية ودروس بلاغة"
+              description="اختر الصياغة الصحيحة في جمل من العمل واعرف سبب إعرابها، وتعلّم السجع والطباق والتشبيه والكناية بشواهدها."
+              meta={`${SCENARIOS.length} تدريبات نحوية · ${LESSONS.length} دروس بلاغة`}
               cta="ادخل قسم الكبار"
               to="/adults"
               art={<AdultStage backdrop="office" speaker="muna" mood="smile" label="مديرة الفريق ترحّب بك" />}

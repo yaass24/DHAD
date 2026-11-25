@@ -74,7 +74,7 @@ export function ScenarioDetails({ id }: { id: string }) {
               {inProgress && (
                 <div className="resume-box">
                   <span>
-                    توقّفت عند القرار {Math.min(p!.currentStep + 1, sc.decisions.length)} من {sc.decisions.length}
+                    توقّفت عند المسألة {Math.min(p!.currentStep + 1, sc.decisions.length)} من {sc.decisions.length}
                   </span>
                   <ProgressBar value={p!.currentStep} max={sc.decisions.length} label="تقدّمك المحفوظ" />
                 </div>
@@ -88,7 +88,7 @@ export function ScenarioDetails({ id }: { id: string }) {
                   {inProgress ? (
                     <>
                       <button type="button" className="btn btn-primary btn-lg" onClick={() => start(false)}>
-                        <Icon name="play" size={18} filled /> تابع من القرار {Math.min(p!.currentStep + 1, sc.decisions.length)}
+                        <Icon name="play" size={18} filled /> تابع من المسألة {Math.min(p!.currentStep + 1, sc.decisions.length)}
                       </button>
                       <button type="button" className="btn btn-outline" onClick={() => start(true)}>
                         <Icon name="replay" size={18} /> ابدأ من جديد

@@ -4,7 +4,6 @@ import { useDispatch, useGame } from '../../state/store';
 import { CRITERIA_LABEL, SCENARIO_POINTS, SKILL_LABEL, scenarioScore, stableShuffle } from '../../data';
 import { ADULTS, AdultAvatar, AdultStage } from '../../art/AdultArt';
 import { AnswerOption, type OptionState } from '../../components/AnswerOption';
-import { FeedbackMessage } from '../../components/FeedbackMessage';
 import { SoundToggle } from '../../components/SoundToggle';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Icon } from '../../components/Icon';
@@ -18,9 +17,9 @@ const VERDICT = {
 };
 
 const RATING_TEXT = {
-  best: 'الأنسب',
-  acceptable: 'مقبول، وهناك أنسب',
-  unsuitable: 'لا يناسب الموقف',
+  best: 'صواب',
+  acceptable: 'فيه خلل جزئي',
+  unsuitable: 'خطأ',
 };
 
 export function CriteriaRow({ option }: { option: DecisionOption }) {
@@ -52,7 +51,7 @@ function Transcript({ scenario, upto, answers }: { scenario: Scenario; upto: num
   return (
     <details className="transcript" open={roomy}>
       <summary>
-        <Icon name="chat" size={16} /> سجلّ المحادثة
+        <Icon name="chat" size={16} /> سجلّ المراجعة
       </summary>
       <ol ref={ref}>
         {scenario.decisions.slice(0, upto).map((d, i) => {
@@ -64,7 +63,7 @@ function Transcript({ scenario, upto, answers }: { scenario: Scenario; upto: num
                 <b>{ADULTS[d.speaker].name}:</b> {d.line}
               </p>
               <p className="t-you">
-                <b>أنت:</b> {best.text}
+                <b>الصواب:</b> {best.text}
                 {mine && mine.rating !== 'best' && <small> (اخترت أولًا: «{mine.text}»)</small>}
               </p>
               <p className="t-them">
@@ -151,8 +150,6 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
     if (o.id === chosen.id) return o.rating === 'acceptable' ? 'acceptable' : 'unsuitable';
     return 'dim';
   };
-  const verdictKind = chosen?.rating === 'best' ? 'success' : chosen?.rating === 'acceptable' ? 'warn' : 'hint';
-  const verdictTitle = chosen?.rating === 'best' ? 'اختيار موفّق: هذه الصياغة الأنسب للموقف.' : chosen?.rating === 'acceptable' ? 'اختيار مقبول، لكن هناك صياغة أنسب.' : 'هذا الخيار لا يناسب الموقف كما ينبغي.';
 
   return (
     <div className="player adults-player" style={{ '--accent': '#245742' } as CSSProperties}>
@@ -163,7 +160,7 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
         <div className="player-title">
           <strong>{scenario.title}</strong>
           <span>
-            القرار {step + 1} من {scenario.decisions.length}
+            المسألة {step + 1} من {scenario.decisions.length}
           </span>
         </div>
         <div className="player-progress">
@@ -190,7 +187,7 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
               {chosen ? (
                 <>
                   <p className="vn-you">
-                    <b>أنت:</b> {d.options.find((o) => o.rating === 'best')!.text}
+                    <b>الصواب:</b> {d.options.find((o) => o.rating === 'best')!.text}
                   </p>
                   <p className="vn-line">{d.followUp}</p>
                 </>
@@ -205,14 +202,14 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
         <section className="vn-panel" aria-labelledby="vn-q">
           <div className="context-card">
             <span className="context-label">
-              <Icon name="info" size={16} /> السياق · {SKILL_LABEL[d.skill]}
+              <Icon name="info" size={16} /> {SKILL_LABEL[d.skill]}
             </span>
             <p>{d.context}</p>
           </div>
           <h2 id="vn-q" tabIndex={-1} ref={headingRef}>
             {d.prompt}
           </h2>
-          <div className="answers answers-adult" role="group" aria-label="الردود المقترحة">
+          <div className="answers answers-adult" role="group" aria-label="الصياغات المقترحة">
             {options.map((o, i) => (
               <AnswerOption key={o.id} tone="adults" label={o.text} index={i} state={optState(o)} disabled={!!chosen} onSelect={() => choose(o)} />
             ))}
@@ -223,19 +220,17 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
 
           {chosen && (
             <div className="explain" ref={feedbackRef} tabIndex={-1}>
-              <FeedbackMessage kind={verdictKind} title={verdictTitle} />
-              <div className="explain-main">
-                <p className="explain-quote">«{chosen.text}»</p>
+              <div className={'verdict v-' + chosen.rating}>
+                <span className="verdict-chip">
+                  <Icon name={chosen.rating === 'best' ? 'check' : chosen.rating === 'acceptable' ? 'tilde' : 'x'} size={16} strokeWidth={3} />
+                  {RATING_TEXT[chosen.rating]}
+                </span>
                 <p>{chosen.explanation}</p>
               </div>
               {chosen.rating !== 'best' && (
-                <div className="explain-main explain-best">
-                  <span className="rating-chip rc-best">
-                    <Icon name="check" size={14} strokeWidth={3} /> الأنسب
-                  </span>
-                  <p className="explain-quote">«{best.text}»</p>
-                  <p>{best.explanation}</p>
-                </div>
+                <p className="better">
+                  <b>الصواب:</b> «{best.text}» — {best.explanation}
+                </p>
               )}
               <details className="compare">
                 <summary>
@@ -259,7 +254,7 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
                 </ul>
               </details>
               <button type="button" className="btn btn-primary btn-lg btn-block" onClick={next}>
-                {isLast ? 'اعرض النتيجة' : 'تابع المحادثة'} <Icon name={isLast ? 'flag' : 'next'} size={20} />
+                {isLast ? 'اعرض النتيجة' : 'المسألة التالية'} <Icon name={isLast ? 'flag' : 'next'} size={20} />
               </button>
             </div>
           )}

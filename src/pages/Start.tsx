@@ -37,7 +37,7 @@ export function Start() {
             <AdultStage backdrop="interview" speaker="fahad" mood="smile" />
             <span className="choose-body">
               <strong>ضاد للكبار</strong>
-              <span>مساران: مواقف عمل تختار فيها الصياغة الأنسب، ودروس بلاغة في السجع والطباق والتشبيه والكناية.</span>
+              <span>مساران: تدريبات نحوية على جمل من العمل مع شرح الإعراب، ودروس بلاغة في السجع والطباق والتشبيه والكناية.</span>
               <span className="choose-cta">
                 ادخل قسم الكبار <Icon name="next" size={18} />
               </span>

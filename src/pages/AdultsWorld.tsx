@@ -21,11 +21,11 @@ export function AdultsWorld() {
         <div className="container adults-hero-inner">
           <div>
             <p className="eyebrow eyebrow-light">ضاد للكبار</p>
-            <h1>عربيتك... أوضح وأجمل</h1>
-            <p className="lead">مساران قصيران: مواقف عملية تختار فيها الصياغة الأنسب، ودروس بلاغة تتعلّم فيها أساليب العربية بشواهد من القرآن والحديث والشعر.</p>
+            <h1>عربيتك... بقواعدها</h1>
+            <p className="lead">مساران: تدريبات نحوية على جمل من العمل تختار فيها الصياغة الصحيحة وتعرف سبب الإعراب، ودروس بلاغة بشواهد من القرآن والحديث والشعر وتطبيقها في الكتابة المهنية.</p>
             <div className="world-stats">
               <span>
-                <Icon name="chat" /> {scDone} / {SCENARIOS.length} مواقف
+                <Icon name="chat" /> {scDone} / {SCENARIOS.length} تدريبات
               </span>
               <span>
                 <Icon name="sparkle" /> {lsDone} / {LESSONS.length} دروس
@@ -48,19 +48,19 @@ export function AdultsWorld() {
               <span className="track-icon">
                 <Icon name="chat" size={26} />
               </span>
-              <h3>مواقف العمل</h3>
-              <p>محادثات من بيئة العمل: يوم أول، ومقابلة، وخدمة عملاء، وتفاوض. في كل قرار تختار الرد الأنسب، ثم تعرف السبب.</p>
+              <h3>تدريبات النحو</h3>
+              <p>المثنى وجمع المذكر السالم، وعلامات النصب والجر، والعدد والتمييز والهمزة، وإعراب الجمل والممنوع من الصرف — على جمل حقيقية من التقارير والمراسلات.</p>
               <ul className="track-points">
                 <li>
-                  <Icon name="check" size={16} /> {SCENARIOS.length} مواقف · {SCENARIOS.reduce((n, x) => n + x.decisions.length, 0)} قرارًا
+                  <Icon name="check" size={16} /> {SCENARIOS.length} تدريبات · {SCENARIOS.reduce((n, x) => n + x.decisions.length, 0)} مسألة
                 </li>
                 <li>
-                  <Icon name="check" size={16} /> تقييم بالقواعد والمعنى والنبرة والرسمية والسياق
+                  <Icon name="check" size={16} /> لكل خيار سبب إعرابي مشروح
                 </li>
               </ul>
               <ProgressBar value={scDone} max={SCENARIOS.length} label="تقدّمك في المواقف" />
               <Link to="/adults/library" className="btn btn-primary btn-lg">
-                افتح المواقف <Icon name="next" size={18} />
+                افتح التدريبات <Icon name="next" size={18} />
               </Link>
             </article>
             <article className="track-card">
@@ -68,7 +68,7 @@ export function AdultsWorld() {
                 <Icon name="sparkle" size={26} />
               </span>
               <h3>دروس البلاغة</h3>
-              <p>السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية: شرح موجز بشواهد، ثم أسئلة تطبيقية.</p>
+              <p>السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية: شرح بشواهد، وموضع كل أسلوب في الكتابة المهنية، ثم أسئلة تطبيقية.</p>
               <ul className="track-points">
                 <li>
                   <Icon name="check" size={16} /> {LESSONS.length} دروس · {LESSONS.reduce((n, x) => n + x.questions.length, 0)} سؤالًا

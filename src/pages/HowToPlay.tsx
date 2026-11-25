@@ -40,7 +40,7 @@ export function HowToPlay() {
           </article>
           <article className="panel how-adults">
             <h2>
-              <Icon name="chat" /> مواقف العمل (للكبار)
+              <Icon name="chat" /> التدريبات النحوية (للكبار)
             </h2>
             <ol className="how-steps">
               <li>اقرأ كلام الشخصية وبطاقة السياق.</li>

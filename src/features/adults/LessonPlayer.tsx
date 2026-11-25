@@ -142,6 +142,9 @@ export function LessonPlayer({ lesson }: { lesson: RhetoricLesson }) {
               <h1>{lesson.title}</h1>
               <p className="lead">{lesson.summary}</p>
             </div>
+            <p className="at-work">
+              <Icon name="chat" size={18} /> {lesson.atWork}
+            </p>
             <ConceptCards lesson={lesson} />
             <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() => setPhase('quiz')}>
               {resumed ? 'عُد إلى الأسئلة' : `ابدأ التدريب · ${lesson.questions.length} أسئلة`} <Icon name="next" size={20} />

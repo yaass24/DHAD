@@ -11,12 +11,12 @@ export function ScenarioLibrary() {
   const shown = SCENARIOS.filter((x) => s.adultsLevel === 'all' || x.level === s.adultsLevel);
   return (
     <div className="theme-adults">
-      <PageHeader title="مكتبة المواقف" lead="مواقف مهنية متدرّجة. يُفتح الموقف التالي في كل مستوى بعد إكمال الذي قبله." back="/adults" backLabel="ضاد للكبار" tone="adults" />
+      <PageHeader title="التدريبات النحوية" lead="تدريبات متدرّجة على جمل من بيئة العمل. يُفتح التدريب التالي في كل مستوى بعد إكمال الذي قبله." back="/adults" backLabel="ضاد للكبار" tone="adults" />
       <section className="section">
         <div className="container">
           <LevelSelector name="lib-adults-level" value={s.adultsLevel} hints={ADULTS_LEVEL_HINT} onChange={(level) => dispatch({ type: 'setLevel', audience: 'adults', level })} />
           <p className="muted result-count" role="status">
-            {shown.length} {shown.length > 2 ? 'مواقف' : shown.length === 2 ? 'موقفان' : 'موقف'}
+            {shown.length} {shown.length > 2 ? 'تدريبات' : shown.length === 2 ? 'تدريبان' : 'تدريب'}
           </p>
           <div className="card-grid">
             {shown.map((sc) => (

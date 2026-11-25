@@ -8,13 +8,13 @@ import { ProgressBar } from '../components/ProgressBar';
 import { NotFound } from './NotFound';
 import type { Skill } from '../types';
 
-const RATING = { best: 'الأنسب', acceptable: 'مقبول', unsuitable: 'غير مناسب' } as const;
+const RATING = { best: 'الصواب', acceptable: 'فيه خلل', unsuitable: 'خطأ' } as const;
 
 function verdict(pct: number) {
-  if (pct === 100) return { title: 'أداء مثالي', text: 'اخترت الصياغة الأنسب في كل القرارات، وأظهرت حسًّا دقيقًا بالنبرة والسياق.' };
-  if (pct >= 90) return { title: 'أداء متميّز', text: 'اخترت الصياغة الأنسب في معظم القرارات، وأظهرت حسًّا دقيقًا بالنبرة والسياق.' };
-  if (pct >= 60) return { title: 'أداء جيد', text: 'لغتك سليمة في الغالب. راجع القرارات التي اخترت فيها خيارًا مقبولًا، فالفرق غالبًا في النبرة أو الدقة.' };
-  return { title: 'بداية مفيدة', text: 'كثير من الخيارات كانت صحيحة لغويًا لكنها لم تناسب الموقف. أعد المحاولة مع التركيز على بطاقة السياق.' };
+  if (pct === 100) return { title: 'إتقان كامل', text: 'أصبت الصياغة الصحيحة في كل المسائل، وأدركت علامة الإعراب في كل موضع.' };
+  if (pct >= 90) return { title: 'أداء متميّز', text: 'أصبت في معظم المسائل. راجع المواضع التي أخطأت فيها، فالقاعدة فيها واحدة غالبًا.' };
+  if (pct >= 60) return { title: 'أداء جيد', text: 'إعرابك سليم في الغالب. راجع المسائل التي أخطأت فيها، وانظر في علامة الرفع والنصب والجر.' };
+  return { title: 'بداية مفيدة', text: 'راجع شرح كل مسألة أدناه، ثم أعد التدريب؛ علامات الإعراب تتكرّر في المواضع نفسها.' };
 }
 
 export function ScenarioResults({ id }: { id: string }) {
@@ -82,7 +82,7 @@ export function ScenarioResults({ id }: { id: string }) {
             <p className="muted small">تُحسب المهارة من اختيارك الأول في كل قرار: الخيار الأنسب يُحتسب كاملًا، والمقبول جزئيًا.</p>
           </div>
           <div className="panel">
-            <h2>مراجعة القرارات</h2>
+            <h2>مراجعة المسائل</h2>
             <ol className="review-list">
               {sc.decisions.map((d, i) => {
                 const mine = d.options.find((o) => o.id === answers[i]);

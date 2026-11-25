@@ -30,26 +30,28 @@ export const KIDS_LEVEL_HINT: Record<Level, string> = {
 };
 
 export const ADULTS_LEVEL_HINT: Record<Level, string> = {
-  beginner: 'تعبيرات رسمية شائعة',
-  intermediate: 'محادثات مهنية ومفرداتها',
-  advanced: 'مصطلحات دقيقة واختيارات سياقية دقيقة',
+  beginner: 'المثنى والجمع وعلامات الإعراب',
+  intermediate: 'النصب والجر وإعراب الجمل',
+  advanced: 'العدد والممنوع من الصرف ودقة اللفظ',
 };
 
 export const SKILL_LABEL: Record<Skill, string> = {
-  formality: 'الرسمية',
-  tone: 'النبرة',
-  precision: 'الدقة',
-  clarity: 'الوضوح',
-  courtesy: 'اللباقة',
-  persuasion: 'الإقناع',
+  plural: 'المثنى وجمع المذكر السالم',
+  cases: 'علامات النصب والجر',
+  parsing: 'إعراب الجملة',
+  numbers: 'العدد والتمييز',
+  diptote: 'الممنوع من الصرف',
+  hamza: 'رسم الهمزة',
+  rhetoric: 'الأسلوب والبلاغة',
+  diction: 'دقة اللفظ',
 };
 
 export const CRITERIA_LABEL = {
-  grammar: 'القواعد',
-  meaning: 'المعنى',
-  tone: 'النبرة',
-  formality: 'الرسمية',
-  context: 'السياق',
+  grammar: 'الإعراب',
+  morphology: 'الصرف',
+  spelling: 'الإملاء',
+  diction: 'دقة اللفظ',
+  style: 'الأسلوب',
 } as const;
 
 export const SCENARIO_POINTS = { best: 20, acceptable: 8, unsuitable: 0 } as const;

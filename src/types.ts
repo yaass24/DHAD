@@ -81,15 +81,21 @@ export interface Story {
 export type AdultId = 'fahad' | 'muna' | 'sara' | 'abdullah' | 'reem';
 export type AdultMood = 'neutral' | 'smile' | 'concerned' | 'upset' | 'pleased' | 'thinking';
 export type AdultBackdrop = 'interview' | 'office' | 'meeting' | 'service' | 'boardroom';
-export type Skill = 'formality' | 'tone' | 'precision' | 'clarity' | 'courtesy' | 'persuasion';
+/** The language topic a decision drills. */
+export type Skill = 'plural' | 'cases' | 'parsing' | 'numbers' | 'diptote' | 'hamza' | 'rhetoric' | 'diction';
 
 export type CriterionVerdict = 'good' | 'weak' | 'issue';
 export interface OptionCriteria {
+  /** إعراب الكلمات وعلاماته */
   grammar: CriterionVerdict;
-  meaning: CriterionVerdict;
-  tone: CriterionVerdict;
-  formality: CriterionVerdict;
-  context: CriterionVerdict;
+  /** بنية الكلمة وصياغتها */
+  morphology: CriterionVerdict;
+  /** رسم الهمزة والألف والتاء */
+  spelling: CriterionVerdict;
+  /** دقة اللفظ في موضعه */
+  diction: CriterionVerdict;
+  /** وضوح الأسلوب وجودته */
+  style: CriterionVerdict;
 }
 
 export interface DecisionOption {
@@ -150,13 +156,18 @@ export interface RhetoricQuestion {
   correct: string;
   explanation: string;
 }
+export type LessonTrack = 'rhetoric' | 'grammar';
+
 export interface RhetoricLesson {
   id: string;
   title: string;
   subtitle: string;
+  track: LessonTrack;
   level: Level;
-  icon: 'sparkle' | 'repeat' | 'target' | 'medal';
+  icon: 'sparkle' | 'repeat' | 'target' | 'medal' | 'layers' | 'check' | 'book';
   summary: string;
+  /** How the topic shows up in workplace writing. */
+  atWork: string;
   concepts: RhetoricConcept[];
   questions: RhetoricQuestion[];
 }
