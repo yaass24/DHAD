@@ -43,7 +43,10 @@ jobs:
           ls -R dist | head -50
 
       - name: Configure Pages
+        # enablement: turns Pages on (source = GitHub Actions) if it is still off
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Upload dist as the Pages artifact
         uses: actions/upload-pages-artifact@v3
