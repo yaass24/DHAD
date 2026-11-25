@@ -78,7 +78,7 @@ export function MyProgress() {
                     <li key={sc.id}>
                       <strong>{sc.title}</strong>
                       <ProgressBar value={p?.timesCompleted ? sc.decisions.length : p?.currentStep ?? 0} max={sc.decisions.length} label={'تقدّمك في ' + sc.title} />
-                      <span>{p?.timesCompleted ? `${p.bestScore}%` : p?.status === 'in-progress' ? `القرار ${p.currentStep + 1}` : 'لم يبدأ'}</span>
+                      <span>{p?.timesCompleted ? `${p.bestScore}%` : p?.status === 'in-progress' ? `المسألة ${p.currentStep + 1}` : 'لم يبدأ'}</span>
                       <Link to={p?.status === 'in-progress' ? `/adults/play/${sc.id}` : `/adults/scenario/${sc.id}`}>{p?.status === 'in-progress' ? 'تابع' : 'افتح'}</Link>
                     </li>
                   );
