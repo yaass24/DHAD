@@ -195,7 +195,7 @@ export function Home() {
               subtitle="قصص مصوّرة للصغار"
               description="انطلق مع شخصيات ضاد في حكايات ممتعة، وأكمل الحوارات بالكلمات المناسبة."
               meta={`${STORIES.length} حكايات · ${STORIES.reduce((n, s) => n + s.scenes.length, 0)} مشهدًا تفاعليًا`}
-              cta="استكشف الحكايات"
+              cta="ابدأ الحكايات"
               to="/kids"
                 art={<KidScene background="library" characters={[{ id: 'noura', expression: 'happy', x: 300 }, { id: 'layan', expression: 'excited', x: 500, flip: true }]} label="نورة وليان في المكتبة" />}
               />
@@ -207,7 +207,7 @@ export function Home() {
               subtitle="تدريبات نحوية ودروس بلاغة"
               description="اختر الصياغة الصحيحة في جمل من العمل واعرف سبب إعرابها، وتعلّم السجع والطباق والتشبيه والكناية بشواهدها."
               meta={`${SCENARIOS.length} تدريبات نحوية · ${LESSONS.length} دروس بلاغة`}
-              cta="ادخل قسم الكبار"
+              cta="ابدأ التدريب"
               to="/adults"
                 art={<AdultStage backdrop="office" speaker="muna" mood="smile" label="مديرة الفريق ترحّب بك" />}
               />
