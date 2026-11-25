@@ -4683,3 +4683,197 @@ body[data-world='adults'] {
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   SCROLL REVEAL — home page sections ease in as they arrive
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-up {
+  transform: translateY(28px);
+}
+.reveal-side {
+  transform: translateX(-28px);
+}
+.reveal-zoom {
+  transform: scale(0.94);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+/* the hero is above the fold: it plays once on load, without waiting for a scroll */
+.hero-copy > *,
+.hero-art {
+  animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-copy > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.19s;
+}
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.26s;
+}
+.hero-art {
+  animation-delay: 0.18s;
+  animation-name: hero-art-in;
+}
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes hero-art-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* a thin progress line that follows the page */
+.scroll-line {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  height: 3px;
+  z-index: 60;
+  background: linear-gradient(to left, var(--gold), var(--green-900));
+  transform-origin: right center;
+  transform: scaleX(var(--read, 0));
+  transition: transform 0.12s linear;
+  pointer-events: none;
+}
+.reduce-motion .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.reduce-motion .hero-copy > *,
+.reduce-motion .hero-art {
+  animation: none;
+}
+.reduce-motion .scroll-line {
+  display: none;
+}
+
+/* =========================================================
+   HOME: one screen per section, gliding from one to the next
+   ========================================================= */
+@media (min-width: 768px) and (min-height: 600px) {
+  html:has(body[data-page='home']) {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+  body[data-page='home'] .snap-section {
+    min-height: 100vh;
+    min-height: 100svh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: grid;
+    align-content: center;
+    padding-block: clamp(72px, 10vh, 120px);
+  }
+  body[data-page='home'] .snap-section > .container {
+    width: min(1180px, 100% - 48px);
+  }
+  /* the footer glides in as its own panel */
+  body[data-page='home'] .footer {
+    scroll-snap-align: end;
+  }
+  .reduce-motion:has(body[data-page='home']) {
+    scroll-snap-type: none;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+.reduce-motion {
+  scroll-behavior: auto;
+}
+
+/* section dots */
+.scroll-dots {
+  position: fixed;
+  inset-inline-end: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+@media (min-width: 1024px) and (min-height: 600px) {
+  body[data-page='home'] .scroll-dots {
+    display: flex;
+  }
+}
+.scroll-dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid var(--green-900);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+.scroll-dot span {
+  position: absolute;
+  inset-inline-end: 22px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--green-900);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+.scroll-dot:hover span,
+.scroll-dot:focus-visible span {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.scroll-dot.is-on {
+  background: var(--green-900);
+  transform: scale(1.35);
+}
+.scroll-dot:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+/* dots sit on the green hero: invert them there */
+body[data-page='home'] .scroll-dots {
+  mix-blend-mode: normal;
+}
+.exp-slot {
+  display: grid;
+}

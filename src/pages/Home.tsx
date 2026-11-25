@@ -9,6 +9,8 @@ import { Link } from '../utils/router';
 import { useGame } from '../state/store';
 import { SCENARIOS, STORIES, getScenario, getStory } from '../data';
 import { CAST } from '../data/characters';
+import { Reveal } from '../components/Reveal';
+import { ScrollLine } from '../components/ScrollLine';
 import { LESSONS, getLesson } from '../data/lessons';
 import { PHONE_APP, useMedia } from '../utils/useMedia';
 
@@ -127,7 +129,15 @@ export function Home() {
   if (phone) return <HomeApp />;
   return (
     <>
-      <section className="hero">
+      <ScrollLine
+        sections={[
+          { id: 's-hero', label: 'البداية' },
+          { id: 'worlds', label: 'العوالم' },
+          { id: 's-how', label: 'كيف تعمل' },
+          { id: 's-cast', label: 'الأصدقاء' },
+        ]}
+      />
+      <section className="hero snap-section" id="s-hero">
         <div className="container hero-inner">
           <div className="hero-copy">
             <p className="eyebrow eyebrow-light">ضاد | DHAD · عِش الحكاية، واختر كلماتك.</p>
@@ -171,65 +181,69 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section" id="worlds" aria-labelledby="worlds-title">
+      <section className="section snap-section" id="worlds" aria-labelledby="worlds-title">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <h2 id="worlds-title">عالمان... ولغة واحدة</h2>
             <p>اختر التجربة التي تناسبك، وتنقّل بينهما متى شئت.</p>
-          </div>
+          </Reveal>
           <div className="exp-grid">
-            <ExperienceCard
-              variant="kids"
+            <Reveal variant="up" className="exp-slot">
+              <ExperienceCard
+                variant="kids"
               title="حكايات ضاد"
               subtitle="قصص مصوّرة للصغار"
               description="انطلق مع شخصيات ضاد في حكايات ممتعة، وأكمل الحوارات بالكلمات المناسبة."
               meta={`${STORIES.length} حكايات · ${STORIES.reduce((n, s) => n + s.scenes.length, 0)} مشهدًا تفاعليًا`}
               cta="استكشف الحكايات"
               to="/kids"
-              art={<KidScene background="library" characters={[{ id: 'noura', expression: 'happy', x: 300 }, { id: 'layan', expression: 'excited', x: 500, flip: true }]} label="نورة وليان في المكتبة" />}
-            />
-            <ExperienceCard
-              variant="adults"
+                art={<KidScene background="library" characters={[{ id: 'noura', expression: 'happy', x: 300 }, { id: 'layan', expression: 'excited', x: 500, flip: true }]} label="نورة وليان في المكتبة" />}
+              />
+            </Reveal>
+            <Reveal variant="up" className="exp-slot" delay={0.12}>
+              <ExperienceCard
+                variant="adults"
               title="ضاد للكبار"
               subtitle="تدريبات نحوية ودروس بلاغة"
               description="اختر الصياغة الصحيحة في جمل من العمل واعرف سبب إعرابها، وتعلّم السجع والطباق والتشبيه والكناية بشواهدها."
               meta={`${SCENARIOS.length} تدريبات نحوية · ${LESSONS.length} دروس بلاغة`}
               cta="ادخل قسم الكبار"
               to="/adults"
-              art={<AdultStage backdrop="office" speaker="muna" mood="smile" label="مديرة الفريق ترحّب بك" />}
-            />
+                art={<AdultStage backdrop="office" speaker="muna" mood="smile" label="مديرة الفريق ترحّب بك" />}
+              />
+            </Reveal>
           </div>
         </div>
       </section>
 
       <AdSlot placement="home" />
 
-      <section className="section section-cream" aria-labelledby="how-title">
+      <section className="section section-cream snap-section" id="s-how" aria-labelledby="how-title">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <h2 id="how-title">كيف تعمل ضاد؟</h2>
-          </div>
+          </Reveal>
           <ol className="steps">
-            <li>
+            <Reveal as="li" delay={0.0}>
               <span className="step-num">1</span>
               <h3>اقرأ المشهد</h3>
               <p>تبدأ كل خطوة بمشهد مصوّر وحوار بين الشخصيات.</p>
-            </li>
-            <li>
+            </Reveal>
+            <Reveal as="li" delay={0.08}>
               <span className="step-num">2</span>
               <h3>اختر كلمتك</h3>
-              <p>أكمل الكلمة الناقصة، أو اختر الردّ الأنسب للموقف.</p>
-            </li>
-            <li>
+              <p>في الحكايات تختار الكلمة المناسبة، وفي تدريبات الكبار تكتبها بصيغتها الصحيحة.</p>
+            </Reveal>
+            <Reveal as="li" delay={0.16}>
               <span className="step-num">3</span>
               <h3>افهم السبب</h3>
-              <p>تشرح لك ضاد لماذا كان الاختيار مناسبًا: في المعنى والنبرة والسياق.</p>
-            </li>
-            <li>
+              <p>يظهر سبب الصواب: المعنى في الحكايات، والإعراب في تدريبات الكبار.</p>
+            </Reveal>
+            <Reveal as="li" delay={0.24}>
               <span className="step-num">4</span>
               <h3>تقدّم واجمع الإنجازات</h3>
               <p>نجوم وشارات، ويُحفظ تقدّمك لتتابع متى شئت.</p>
-            </li>
+            </Reveal>
           </ol>
           <p className="center">
             <Link to="/how" className="btn btn-outline">
@@ -239,25 +253,25 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="cast-title">
+      <section className="section snap-section" id="s-cast" aria-labelledby="cast-title">
         <div className="container cast-wrap">
-          <div className="section-head">
+          <Reveal className="section-head">
             <h2 id="cast-title">تعرّف على أصدقاء ضاد</h2>
             <p>شخصيات أصلية ترافق الصغار في حكايات من الحياة اليومية.</p>
-          </div>
+          </Reveal>
           <div className="cast-grid">
-            {CAST.map((c) => (
-              <article key={c.id} className="cast-card">
+            {CAST.map((c, i) => (
+              <Reveal as="article" key={c.id} className="cast-card" variant="zoom" delay={i * 0.07}>
                 <KidAvatar id={c.id} expression="happy" size={112} />
                 <h3>{c.name}</h3>
                 <p>{c.trait}</p>
-              </article>
+              </Reveal>
             ))}
-            <article className="cast-card cast-dhaw">
+            <Reveal as="article" className="cast-card cast-dhaw" variant="zoom" delay={CAST.length * 0.07}>
               <Dhaw mood="excited" size={112} />
               <h3>ضوء</h3>
               <p>رفيق صغير يضيء الطريق: يشجّعك، ويلمّح لك، ويحتفل بإنجازاتك.</p>
-            </article>
+            </Reveal>
           </div>
         </div>
       </section>

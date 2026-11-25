@@ -1,11 +1,53 @@
+<div align="center">
+
+<img src="public/dhad-logo.png" alt="شعار ضاد" width="140" />
+
 # ضاد | DHAD
 
 **عِش الحكاية، واختر كلماتك.**
 
+لعبة تعليمية عربية (فصحى، RTL) تُقوّي اللغة في بيئة العمل: نحوٌ وبلاغة وكتابة رسائل.
+
+[![الموقع](https://img.shields.io/badge/%D8%AC%D8%B1%D9%91%D8%A8%D9%87%D8%A7-yaass24.github.io%2FDHAD-07533E)](https://yaass24.github.io/DHAD/)
+![React](https://img.shields.io/badge/React-19-0877B8)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-245742)
+![Vite](https://img.shields.io/badge/Vite-7-F5AF22)
+![No AI](https://img.shields.io/badge/%D8%A8%D9%84%D8%A7%20%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-C63C32)
+
+</div>
+
+## لماذا ضاد؟
+
+العربية الفصحى في مكان العمل تتآكل: تقارير تُكتب بالعامية، ومراسلات فيها «أرجوا» و«خمس أيام» و«إنشاء الله»،
+ومصطلحات تقنية تُنقل كما هي. وضاد مشروع يعالج هذا من جهتين:
+
+- **تعزيز العربية داخل الشركات:** تدريبات على جمل حقيقية من التقارير والمراسلات، لا تمارين مدرسية مجرّدة.
+- **تحسين بيئة العمل:** كتابة رسائل مهنية صحيحة (طلب إجازة، متابعة، اعتذار عن تأخير) تُختصر بها دورات المراجعة
+  وسوء الفهم بين الفرق.
+
+وهو مشروع في **نظم المعلومات الحاسوبية (Computer Information Systems)**: يجمع بين تحليل حاجة واقعية في المنشآت،
+وتصميم تجربة استخدام، وهندسة واجهة أمامية تعمل بلا خادم ولا حسابات، ونشر آليّ عبر GitHub Actions.
+
+## التجربتان
+
+- **حكايات ضاد** (للصغار): قصص مصوّرة تُكمل فيها حوار الشخصيات بالكلمة المناسبة، مع نجوم وشارات.
+- **ضاد للكبار**: ثلاثة مسارات —
+  - **تدريبات نحوية:** تكتب الكلمة الناقصة بصيغتها الصحيحة (المثنى وجمع المذكر السالم، النصب والجر، العدد
+    والتمييز والهمزة، إعراب الجملة والممنوع من الصرف)، ولكل خطأ متوقَّع شرحه الإعرابي.
+  - **دروس البلاغة:** السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية — بشواهد من القرآن الكريم
+    والحديث الشريف والشعر العربي، مع موضع كل أسلوب في الكتابة المهنية.
+  - **اكتب رسالة:** تكتب الرسالة بنفسك، ثم تُفحص بقائمة تدقيق محدّدة مسبقًا (عناصر مطلوبة وأخطاء شائعة)،
+    ويُعرض نموذج للمقارنة.
+
+> **بلا ذكاء اصطناعي:** كل سؤال وكل شرح وكل عنصر تدقيق مكتوب مسبقًا في ملفات المحتوى ومراجَع. لا نموذج لغوي،
+> ولا خادم، ولا حسابات، ولا تتبّع. ويُحفظ تقدّمك في `localStorage` على جهازك وحده.
+
+---
+
 An interactive Arabic (MSA) learning game with two experiences:
 
 - **حكايات ضاد** (children): illustrated, comic-style stories. Complete each character's line with the right word, get gentle hints, collect stars and badges.
-- **ضاد للكبار** (teens & adults): two tracks — visual-novel workplace conversations where every option is rated on grammar, meaning, tone, formality and context, and four rhetoric lessons (السجع والجناس، الطباق والمقابلة، التشبيه والاستعارة، الكناية) with sourced classical examples.
+- **ضاد للكبار** (teens & adults): three tracks — typed grammar drills on sentences from reports and letters, rhetoric lessons with sourced classical examples and their place in professional writing, and a writing track where the learner composes a real message that a predefined checklist then reviews.
 
 No AI, no backend, no accounts. All answers and explanations come from reviewed content files. Progress is saved in `localStorage`.
 
@@ -19,17 +61,16 @@ npm run preview    # serve the production build
 npm run typecheck  # optional TypeScript check
 ```
 
-Requires Node 18+. The build uses `base: './'` and hash routing (`#/kids/...`), so `dist/` can be served from any static host or sub-folder (GitHub Pages, Netlify, S3, a plain folder) with no rewrite rules.
-
-A ready-made production build is also included in `dist/` (open `dist/index.html` or upload the folder as-is).
+Requires Node 18+. The build uses `base: '/DHAD/'` (override with `DHAD_BASE`) and hash routing (`#/kids/...`), so `dist/` can be served from any static host or sub-folder (GitHub Pages, Netlify, S3, a plain folder) with no rewrite rules.
 
 ## What's inside
 
 | Area | Content |
 | --- | --- |
 | Children's stories | 5 stories, 25 interactive scenes (beginner ×2, intermediate ×2, advanced ×1) |
-| Adult scenarios | 4 scenarios, 20 dialogue decisions, 60 rated options (beginner, intermediate ×2, advanced) |
-| Rhetoric lessons | 4 lessons, 24 questions, 8 concept cards with sourced examples from the Qur'an, hadith and classical poetry |
+| Grammar drills | 4 drills, 20 typed blanks with targeted feedback for predictable wrong forms |
+| Rhetoric lessons | 4 lessons, 24 questions, 8 concept cards with sourced examples, each with its place in workplace writing |
+| Writing tasks | 3 messages (leave request, follow-up, apology) with 19 predefined checks and model answers |
 | Pages | Home, Choose experience, Kids world, Story library, Story details, Story player, Story completion, Rewards, Adults world, Scenario library, Scenario details, Conversation player, Results, Learning progress, Rhetoric lessons library, Lesson player, Lesson result, How to play, About, My progress, Settings, 404 |
 | Gamification | points, stars, progress bars, story badges, 11 achievements, unlockable stories/scenarios, replay, resume from the saved scene |
 | Sound | Original Web Audio effects (correct, try-again, transition, click, completion, achievement), mute + volume, saved locally, never autoplayed |
