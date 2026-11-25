@@ -4877,9 +4877,8 @@ body[data-page='home'] .scroll-dots {
 }
 .about-hero-inner {
   display: grid;
-  grid-template-columns: 1.3fr auto;
-  gap: clamp(24px, 5vw, 60px);
-  align-items: center;
+  gap: 8px;
+  max-width: 860px;
 }
 .about-hero h1 {
   font-family: var(--font-kids);
@@ -4897,13 +4896,36 @@ body[data-page='home'] .scroll-dots {
 .about-hero-link {
   margin: 22px 0 0;
 }
-.about-hero-mark {
+.about-idea {
   display: grid;
-  place-items: center;
-  padding: 22px;
-  border-radius: var(--r-xl);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+  width: min(1000px, 100% - 40px);
+}
+.about-idea h2 {
+  font-family: var(--font-kids);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--green-900);
+  margin: 0 0 14px;
+}
+.about-idea p {
+  margin: 0 0 14px;
+  line-height: 2.1;
+}
+.about-idea p:last-child {
+  margin-bottom: 0;
+}
+.about-mark {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+}
+.about-mark p {
+  font-size: var(--fs-sm);
+  line-height: 1.9;
+  color: var(--ink-soft);
 }
 .about-narrow {
   width: min(820px, 100% - 40px);
@@ -5088,11 +5110,12 @@ body[data-page='home'] .scroll-dots {
   .about-notes {
     grid-template-columns: 1fr;
   }
-  .about-hero-inner {
+  .about-idea {
     grid-template-columns: 1fr;
   }
-  .about-hero-mark {
-    justify-self: start;
+  .about-mark .logo-mark {
+    height: 150px;
+    width: auto;
   }
 }
 @media (max-width: 767px) {
@@ -5109,11 +5132,8 @@ body[data-page='home'] .scroll-dots {
     gap: 16px;
     padding: 22px;
   }
-  .about-hero-mark {
-    padding: 14px;
-  }
-  .about-hero-mark .logo-mark {
-    height: 120px;
+  .about-mark .logo-mark {
+    height: 126px;
     width: auto;
   }
 }

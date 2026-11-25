@@ -30,14 +30,15 @@ export function About() {
               </Link>
             </p>
           </div>
-          <div className="about-hero-mark">
-            <LogoMark size={190} decorative={false} />
-          </div>
         </div>
       </section>
 
       <section className="section" aria-labelledby="idea-title">
-        <div className="container about-narrow">
+        <div className="container about-idea">
+          <Reveal className="about-mark">
+            <LogoMark size={190} decorative={false} />
+            <p>شعار ضاد زخرفة مستوحاة من النقوش التراثية: سعفٌ أخضر ينمو من قلب الرمز، تحيط به ألوان الهوية. وأمّا الاسم فمن حرف الضاد الذي عُرفت به العربية.</p>
+          </Reveal>
           <Reveal>
             <h2 id="idea-title">فكرة ضاد</h2>
             <p>جاءت فكرة ضاد لتوظيف التقنية في تعزيز استخدام اللغة العربية الفصحى، وتطوير مهارات التعبير والتواصل في المواقف اليومية والمهنية.</p>
@@ -130,7 +131,7 @@ export function About() {
             </Reveal>
             <Reveal as="article" className="note-card" delay={0.16}>
               <h3>الرسوم والأصوات</h3>
-              <p>الشخصيات والمشاهد رسوم أصلية صُمّمت لضاد، والمؤثرات الصوتية مولَّدة داخل المتصفح. وأمّا الشعار فزخرفة مستوحاة من النقوش التراثية، والاسم من حرف الضاد الذي عُرفت به العربية.</p>
+              <p>الشخصيات والمشاهد رسوم أصلية صُمّمت لضاد، والمؤثرات الصوتية مولَّدة داخل المتصفح.</p>
             </Reveal>
           </div>
         </div>
