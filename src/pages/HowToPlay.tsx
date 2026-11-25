@@ -4,11 +4,10 @@ import { Link } from '../utils/router';
 import { Icon } from '../components/Icon';
 import { Dhaw } from '../art/Mascot';
 import { AnswerOption } from '../components/AnswerOption';
-import { CriteriaRow } from '../features/adults/ConversationPlayer';
 import { firstDay } from '../data/scenarios/first-day';
 
 export function HowToPlay() {
-  const sample = firstDay.decisions[0].options[2];
+  const sample = firstDay.decisions[0];
   return (
     <>
       <PageHeader title="كيف نلعب؟" lead="دقيقتان تكفيان لتعرف كل شيء." back="/" backLabel="الرئيسية">
@@ -43,18 +42,16 @@ export function HowToPlay() {
               <Icon name="chat" /> التدريبات النحوية (للكبار)
             </h2>
             <ol className="how-steps">
-              <li>اقرأ كلام الشخصية وبطاقة السياق.</li>
-              <li>اختر الردّ الأنسب. اختيارك الأول هو الذي يُحتسب.</li>
-              <li>يظهر تقييم اختيارك وسببه، ويمكنك مقارنة كل الخيارات.</li>
-              <li>تستمر المحادثة بالصياغة الأنسب، وتنتقل إلى القرار التالي.</li>
+              <li>اقرأ الجملة الناقصة وبطاقة الموضوع النحوي.</li>
+              <li>اكتب الكلمة بصيغتها الصحيحة. محاولتك الأولى هي التي تُحتسب.</li>
+              <li>إن أخطأت ظهر لك سبب الخطأ، ويمكنك طلب تلميح ثم إعادة المحاولة.</li>
+              <li>بعد الإجابة تظهر القاعدة كاملة، ثم تنتقل إلى المسألة التالية.</li>
             </ol>
+            <p>مثال من التدريب الأول:</p>
+            <blockquote>{sample.blank?.sentence.replace('____', sample.blank.accept[0])}</blockquote>
+            <p className="muted">{sample.blank?.rule}</p>
             <p>
-              كل خيار يُقيَّم بخمسة معايير. قد يكون الخيار <b>صحيحًا نحويًا</b> لكنه لا يناسب النبرة أو السياق، مثل:
-            </p>
-            <blockquote>«{sample.text}»</blockquote>
-            <CriteriaRow option={sample} />
-            <p>
-              <b>النقاط:</b> 20 نقطة للخيار الأنسب، و8 نقاط للخيار المقبول، ولا نقاط للخيار غير المناسب.
+              <b>النقاط:</b> 20 نقطة للإجابة الصحيحة من أول محاولة، و12 بعد التلميح أو بعد محاولة خاطئة، ولا نقاط إذا عُرضت الإجابة.
             </p>
           </article>
           <article className="panel how-adults">

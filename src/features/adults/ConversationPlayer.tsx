@@ -4,6 +4,8 @@ import { useDispatch, useGame } from '../../state/store';
 import { CRITERIA_LABEL, SCENARIO_POINTS, SKILL_LABEL, scenarioScore, stableShuffle } from '../../data';
 import { ADULTS, AdultAvatar, AdultStage } from '../../art/AdultArt';
 import { AnswerOption, type OptionState } from '../../components/AnswerOption';
+import { BlankExercise, type BlankResult } from './BlankExercise';
+import { BLANK_POINTS } from '../../data';
 import { SoundToggle } from '../../components/SoundToggle';
 import { ProgressBar } from '../../components/ProgressBar';
 import { Icon } from '../../components/Icon';
@@ -55,15 +57,15 @@ function Transcript({ scenario, upto, answers }: { scenario: Scenario; upto: num
       </summary>
       <ol ref={ref}>
         {scenario.decisions.slice(0, upto).map((d, i) => {
-          const best = d.options.find((o) => o.rating === 'best')!;
-          const mine = d.options.find((o) => o.id === answers[i]);
+          const best = d.options?.find((o) => o.rating === 'best');
+          const mine = d.options?.find((o) => o.id === answers[i]);
           return (
             <li key={d.id}>
               <p className="t-them">
                 <b>{ADULTS[d.speaker].name}:</b> {d.line}
               </p>
               <p className="t-you">
-                <b>الصواب:</b> {best.text}
+                <b>الصواب:</b> {d.blank ? d.blank.sentence.replace('____', d.blank.accept[0]) : best?.text}
                 {mine && mine.rating !== 'best' && <small> (اخترت أولًا: «{mine.text}»)</small>}
               </p>
               <p className="t-them">
@@ -90,10 +92,12 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
   const step = Math.min(p?.currentStep ?? 0, scenario.decisions.length - 1);
   const d: Decision = scenario.decisions[step];
   const chosenId = p?.status === 'in-progress' ? p.runAnswers[step] : undefined;
-  const chosen = d.options.find((o) => o.id === chosenId);
+  const chosen = d.options?.find((o) => o.id === chosenId);
+  const blankResult = d.blank && chosenId ? (chosenId as BlankResult) : null;
+  const answered = !!chosen || !!blankResult;
   const isLast = step === scenario.decisions.length - 1;
-  const best = d.options.find((o) => o.rating === 'best')!;
-  const options = useMemo(() => stableShuffle(d.options, scenario.id + d.id), [d, scenario.id]);
+  const best = d.options?.find((o) => o.rating === 'best');
+  const options = useMemo(() => stableShuffle(d.options ?? [], scenario.id + d.id), [d, scenario.id]);
   const score = scenarioScore(scenario, p?.runAnswers ?? []);
   const [announce, setAnnounce] = useState('');
   const feedbackRef = useRef<HTMLDivElement>(null);
@@ -118,8 +122,21 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
     [chosen, p, dispatch, scenario.id, step],
   );
 
+  const solveBlank = useCallback(
+    (r: BlankResult) => {
+      if (!p || p.status !== 'in-progress' || chosenId) return;
+      dispatch({ type: 'answerDecision', id: scenario.id, step, optionId: r, points: BLANK_POINTS[r] });
+      setAnnounce(r === 'revealed' ? 'عُرضت الإجابة.' : 'إجابة صحيحة.');
+      setTimeout(() => {
+        feedbackRef.current?.focus({ preventScroll: true });
+        feedbackRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 80);
+    },
+    [p, chosenId, dispatch, scenario.id, step],
+  );
+
   const next = useCallback(() => {
-    if (!chosen) return;
+    if (!answered) return;
     if (isLast) {
       dispatch({ type: 'completeScenario', id: scenario.id, score: score.percent });
       playSound('complete');
@@ -128,18 +145,18 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
       playSound('transition');
       dispatch({ type: 'nextStep', id: scenario.id });
     }
-  }, [chosen, isLast, dispatch, scenario.id, score.percent]);
+  }, [answered, isLast, dispatch, scenario.id, score.percent]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       const n = '١٢٣٤'.indexOf(e.key) + 1 || parseInt(e.key, 10);
-      if (n >= 1 && n <= options.length && !chosen) choose(options[n - 1]);
-      if (e.key === 'ArrowLeft' && chosen) next();
+      if (options.length && n >= 1 && n <= options.length && !chosen) choose(options[n - 1]);
+      if (e.key === 'ArrowLeft' && answered && document.activeElement?.tagName !== 'INPUT') next();
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [options, choose, chosen, next]);
+  }, [options, choose, chosen, answered, next]);
 
   if (!p) return <div className="player-loading">لحظة...</div>;
 
@@ -184,10 +201,10 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
                   <small>{npc.role}</small>
                 </div>
               </div>
-              {chosen ? (
+              {answered ? (
                 <>
                   <p className="vn-you">
-                    <b>الصواب:</b> {d.options.find((o) => o.rating === 'best')!.text}
+                    <b>الصواب:</b> {d.blank ? d.blank.sentence.replace('____', d.blank.accept[0]) : best?.text}
                   </p>
                   <p className="vn-line">{d.followUp}</p>
                 </>
@@ -209,16 +226,35 @@ export function ConversationPlayer({ scenario }: { scenario: Scenario }) {
           <h2 id="vn-q" tabIndex={-1} ref={headingRef}>
             {d.prompt}
           </h2>
-          <div className="answers answers-adult" role="group" aria-label="الصياغات المقترحة">
-            {options.map((o, i) => (
-              <AnswerOption key={o.id} tone="adults" label={o.text} index={i} state={optState(o)} disabled={!!chosen} onSelect={() => choose(o)} />
-            ))}
-          </div>
+          {d.blank ? (
+            <BlankExercise blank={d.blank} solved={blankResult} onSolve={solveBlank} />
+          ) : (
+            <div className="answers answers-adult" role="group" aria-label="الصياغات المقترحة">
+              {options.map((o, i) => (
+                <AnswerOption key={o.id} tone="adults" label={o.text} index={i} state={optState(o)} disabled={!!chosen} onSelect={() => choose(o)} />
+              ))}
+            </div>
+          )}
           <div className="sr-only" role="status" aria-live="polite">
             {announce}
           </div>
 
-          {chosen && (
+          {blankResult && d.blank && (
+            <div className="explain" ref={feedbackRef} tabIndex={-1}>
+              <div className={'verdict ' + (blankResult === 'revealed' ? 'v-unsuitable' : 'v-best')}>
+                <span className="verdict-chip">
+                  <Icon name={blankResult === 'revealed' ? 'x' : 'check'} size={16} strokeWidth={3} />
+                  {blankResult === 'correct' ? 'إجابة صحيحة' : blankResult === 'assisted' ? 'صحيحة بعد المحاولة' : 'الإجابة الصحيحة'}
+                </span>
+                <p>{d.blank.rule}</p>
+              </div>
+              <button type="button" className="btn btn-primary btn-lg btn-block" onClick={next}>
+                {isLast ? 'اعرض النتيجة' : 'المسألة التالية'} <Icon name={isLast ? 'flag' : 'next'} size={20} />
+              </button>
+            </div>
+          )}
+
+          {chosen && best && (
             <div className="explain" ref={feedbackRef} tabIndex={-1}>
               <div className={'verdict v-' + chosen.rating}>
                 <span className="verdict-chip">

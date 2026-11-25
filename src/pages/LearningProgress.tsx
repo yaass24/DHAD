@@ -16,15 +16,23 @@ export function LearningProgress() {
   done.forEach((sc) => {
     const ans = s.scenarios[sc.id].lastAnswers;
     sc.decisions.forEach((d, i) => {
-      const o = d.options.find((x) => x.id === ans[i]);
+      const o = d.options?.find((x) => x.id === ans[i]);
       const cur = skill.get(d.skill) ?? { got: 0, max: 0 };
       cur.max += 1;
-      cur.got += o?.rating === 'best' ? 1 : o?.rating === 'acceptable' ? 0.4 : 0;
+      cur.got += d.blank ? (ans[i] === 'correct' ? 1 : ans[i] === 'assisted' ? 0.6 : 0) : o?.rating === 'best' ? 1 : o?.rating === 'acceptable' ? 0.4 : 0;
       skill.set(d.skill, cur);
     });
   });
   const decisions = done.reduce((n, sc) => n + sc.decisions.length, 0);
-  const bestFirst = done.reduce((n, sc) => n + sc.decisions.filter((d, i) => d.options.find((o) => o.id === s.scenarios[sc.id].lastAnswers[i])?.rating === 'best').length, 0);
+  const bestFirst = done.reduce(
+    (n, sc) =>
+      n +
+      sc.decisions.filter((d, i) => {
+        const a = s.scenarios[sc.id].lastAnswers[i];
+        return d.blank ? a === 'correct' : d.options?.find((o) => o.id === a)?.rating === 'best';
+      }).length,
+    0,
+  );
   const list = ACHIEVEMENTS.filter((a) => a.audience !== 'kids');
   const weakest = Array.from(skill.entries()).sort((a, b) => a[1].got / a[1].max - b[1].got / b[1].max)[0];
   return (

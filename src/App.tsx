@@ -27,6 +27,7 @@ import { Settings } from './pages/Settings';
 import { LessonLibrary } from './pages/LessonLibrary';
 import { LessonPlay } from './pages/LessonPlay';
 import { LessonComplete } from './pages/LessonComplete';
+import { EmailLibrary, WriteEmail } from './pages/WriteEmail';
 import { NotFound } from './pages/NotFound';
 
 type Route = { path: string; render: (p: Record<string, string>) => ReactElement; title: string; immersive?: boolean };
@@ -45,6 +46,8 @@ const ROUTES: Route[] = [
   { path: '/adults/scenario/:id', render: (p) => <ScenarioDetails id={p.id} />, title: 'تفاصيل الموقف' },
   { path: '/adults/play/:id', render: (p) => <ScenarioPlay id={p.id} />, title: 'الموقف', immersive: true },
   { path: '/adults/results/:id', render: (p) => <ScenarioResults id={p.id} />, title: 'نتيجة الموقف' },
+  { path: '/adults/write', render: () => <EmailLibrary />, title: 'اكتب رسالة' },
+  { path: '/adults/write/:id', render: (p) => <WriteEmail id={p.id} />, title: 'كتابة رسالة' },
   { path: '/adults/rhetoric', render: () => <LessonLibrary />, title: 'دروس البلاغة' },
   { path: '/adults/lesson/:id', render: (p) => <LessonPlay id={p.id} />, title: 'درس بلاغة', immersive: true },
   { path: '/adults/lesson-done/:id', render: (p) => <LessonComplete id={p.id} />, title: 'نتيجة الدرس' },

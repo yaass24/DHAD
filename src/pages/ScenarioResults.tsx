@@ -37,10 +37,10 @@ export function ScenarioResults({ id }: { id: string }) {
   const v = verdict(score.percent);
   const skillMap = new Map<Skill, { got: number; max: number }>();
   sc.decisions.forEach((d, i) => {
-    const o = d.options.find((x) => x.id === answers[i]);
+    const o = d.options?.find((x) => x.id === answers[i]);
     const cur = skillMap.get(d.skill) ?? { got: 0, max: 0 };
     cur.max += 1;
-    cur.got += o?.rating === 'best' ? 1 : o?.rating === 'acceptable' ? 0.4 : 0;
+    cur.got += d.blank ? (answers[i] === 'correct' ? 1 : answers[i] === 'assisted' ? 0.6 : 0) : o?.rating === 'best' ? 1 : o?.rating === 'acceptable' ? 0.4 : 0;
     skillMap.set(d.skill, cur);
   });
   const nextSc = SCENARIOS.find((x) => x.id !== id && (s.scenarios[x.id]?.timesCompleted ?? 0) === 0 && !scenarioLockedBy(s, x.id));
@@ -79,14 +79,33 @@ export function ScenarioResults({ id }: { id: string }) {
                 </li>
               ))}
             </ul>
-            <p className="muted small">تُحسب المهارة من اختيارك الأول في كل قرار: الخيار الأنسب يُحتسب كاملًا، والمقبول جزئيًا.</p>
+            <p className="muted small">تُحسب المهارة من محاولتك الأولى في كل مسألة: الإجابة الصحيحة من أول مرة تُحتسب كاملة، وبعد التلميح جزئيًا.</p>
           </div>
           <div className="panel">
             <h2>مراجعة المسائل</h2>
             <ol className="review-list">
               {sc.decisions.map((d, i) => {
-                const mine = d.options.find((o) => o.id === answers[i]);
-                const best = d.options.find((o) => o.rating === 'best')!;
+                const a = answers[i];
+                if (d.blank) {
+                  const ok = a === 'correct';
+                  const tone = ok ? 'best' : a === 'assisted' ? 'acceptable' : 'unsuitable';
+                  return (
+                    <li key={d.id} className={'review rv-' + tone}>
+                      <div className="review-head">
+                        <span className="review-num">{i + 1}</span>
+                        <span className={'rating-chip rc-' + tone}>
+                          <Icon name={ok ? 'check' : tone === 'acceptable' ? 'tilde' : 'x'} size={14} strokeWidth={3} />
+                          {ok ? 'صواب' : tone === 'acceptable' ? 'بعد محاولة' : 'لم تُصب'}
+                        </span>
+                        <small>{SKILL_LABEL[d.skill]}</small>
+                      </div>
+                      <p className="review-line">{d.blank.sentence.replace('____', d.blank.accept[0])}</p>
+                      <p className="muted">{d.blank.rule}</p>
+                    </li>
+                  );
+                }
+                const mine = d.options?.find((o) => o.id === a);
+                const best = d.options?.find((o) => o.rating === 'best');
                 return (
                   <li key={d.id} className={'review rv-' + (mine?.rating ?? 'unsuitable')}>
                     <div className="review-head">
@@ -103,9 +122,11 @@ export function ScenarioResults({ id }: { id: string }) {
                         <b>اختيارك:</b> {mine.text}
                       </p>
                     )}
-                    <p>
-                      <b>الصياغة الأنسب:</b> {best.text}
-                    </p>
+                    {best && (
+                      <p>
+                        <b>الصياغة الأنسب:</b> {best.text}
+                      </p>
+                    )}
                     {mine && mine.rating !== 'best' && <p className="muted">{mine.explanation}</p>}
                   </li>
                 );

@@ -107,6 +107,20 @@ export interface DecisionOption {
   explanation: string;
 }
 
+/** A typed blank: the learner writes the correctly inflected word. */
+export interface Blank {
+  /** the sentence with ____ where the word goes */
+  sentence: string;
+  /** every spelling counted as correct (compared after stripping diacritics) */
+  accept: string[];
+  /** shown on request, before answering */
+  hint: string;
+  /** the rule, shown once the answer is in */
+  rule: string;
+  /** targeted notes for predictable wrong forms */
+  misses?: { answer: string; note: string }[];
+}
+
 export interface Decision {
   id: string;
   speaker: AdultId;
@@ -117,11 +131,36 @@ export interface Decision {
   context: string;
   prompt: string;
   skill: Skill;
-  options: DecisionOption[];
+  /** typed blank (preferred) */
+  blank?: Blank;
+  /** older multiple-choice form, kept for scenarios that still use it */
+  options?: DecisionOption[];
   /** how the other person responds after the player gives the preferred answer */
   followUp: string;
   followUpMood: AdultMood;
   points: number;
+}
+
+export interface EmailCheck {
+  id: string;
+  label: string;
+  /** every pattern must appear (any of them) for the check to pass */
+  any: string[];
+  /** if any of these appear, the check fails with `note` */
+  avoid?: string[];
+  note: string;
+}
+
+export interface EmailTask {
+  id: string;
+  title: string;
+  level: Level;
+  brief: string;
+  /** who the message goes to, and what it must achieve */
+  situation: string;
+  checks: EmailCheck[];
+  model: string;
+  notes: string[];
 }
 
 export interface Scenario {

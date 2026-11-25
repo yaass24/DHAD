@@ -91,14 +91,33 @@ export function stableShuffle<T>(items: T[], seedText: string): T[] {
   return out;
 }
 
+/** Typed blanks record how the answer was reached, not an option id. */
+export const BLANK_POINTS = { correct: 20, assisted: 12, revealed: 0 } as const;
+export type BlankOutcome = keyof typeof BLANK_POINTS;
+
 export function scenarioScore(sc: Scenario, answers: string[]) {
   let points = 0;
   const max = sc.decisions.reduce((s, d) => s + d.points, 0);
   sc.decisions.forEach((d, i) => {
-    const opt = d.options.find((o) => o.id === answers[i]);
-    if (opt) points += SCENARIO_POINTS[opt.rating];
+    const a = answers[i];
+    if (!a) return;
+    if (d.blank) points += BLANK_POINTS[(a as BlankOutcome)] ?? 0;
+    else {
+      const opt = d.options?.find((o) => o.id === a);
+      if (opt) points += SCENARIO_POINTS[opt.rating];
+    }
   });
   return { points, max, percent: max ? Math.round((points / max) * 100) : 0 };
+}
+
+/** Compare a typed answer with the accepted spellings, ignoring diacritics. */
+const STRIP = /[\u064B-\u0652\u0670\u0640]/g;
+export function normalizeArabic(t: string) {
+  return t.replace(STRIP, '').replace(/\s+/g, ' ').trim();
+}
+export function blankMatches(accept: string[], typed: string) {
+  const t = normalizeArabic(typed);
+  return accept.some((a) => normalizeArabic(a) === t);
 }
 
 /** The picture of a scene: before the answer, or after it (reaction expressions, held items and props). */

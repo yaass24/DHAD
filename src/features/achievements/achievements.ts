@@ -1,5 +1,6 @@
 import { SCENARIOS, STORIES } from '../../data';
 import { LESSONS } from '../../data/lessons';
+import { EMAILS } from '../../data/emails';
 import type { GameState } from '../../state/store';
 
 export interface Achievement {
@@ -25,6 +26,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: 'all-scenarios', title: 'محترف المواقف', description: 'أكمل جميع مواقف ضاد.', icon: 'medal', audience: 'adults', check: (s) => scenariosDone(s) === SCENARIOS.length },
   { id: 'first-lesson', title: 'أول درس بلاغة', description: 'أكمل أول درس في دروس البلاغة.', icon: 'sparkle', audience: 'adults', check: (s) => lessonsDone(s) >= 1 },
   { id: 'all-lessons', title: 'بليغ ضاد', description: 'أكمل جميع دروس البلاغة.', icon: 'trophy', audience: 'adults', check: (s) => lessonsDone(s) === LESSONS.length },
+  { id: 'first-email', title: 'كاتب رسائل', description: 'اكتب رسالة تجتاز كل عناصر التدقيق.', icon: 'book', audience: 'adults', check: (s) => EMAILS.some((e) => s.emails?.[e.id]?.done) },
   { id: 'points-200', title: 'جامع النقاط', description: 'اجمع 200 نقطة.', icon: 'sparkle', audience: 'all', check: (s) => s.points >= 200 },
   { id: 'replay', title: 'المثابر', description: 'أعد حكاية أو موقفًا أو درسًا أكملته من قبل.', icon: 'repeat', audience: 'all', check: (s) => [...Object.values(s.stories), ...Object.values(s.scenarios), ...Object.values(s.lessons ?? {})].some((p) => p.timesCompleted >= 2) },
 ];

@@ -2,6 +2,7 @@ import { AdultStage } from '../art/AdultArt';
 import { useGame } from '../state/store';
 import { SCENARIOS } from '../data';
 import { LESSONS } from '../data/lessons';
+import { EMAILS } from '../data/emails';
 import { Link } from '../utils/router';
 import { Icon } from '../components/Icon';
 import { ProgressBar } from '../components/ProgressBar';
@@ -15,6 +16,7 @@ export function AdultsWorld() {
   const s = useGame();
   const scDone = SCENARIOS.filter((x) => (s.scenarios[x.id]?.timesCompleted ?? 0) > 0).length;
   const lsDone = LESSONS.filter((x) => (s.lessons[x.id]?.timesCompleted ?? 0) > 0).length;
+  const emDone = EMAILS.filter((x) => s.emails[x.id]?.done).length;
   return (
     <div className="theme-adults">
       <section className="adults-hero world-hero">
@@ -29,6 +31,9 @@ export function AdultsWorld() {
               </span>
               <span>
                 <Icon name="sparkle" /> {lsDone} / {LESSONS.length} دروس
+              </span>
+              <span>
+                <Icon name="book" /> {emDone} / {EMAILS.length} رسائل
               </span>
             </div>
           </div>
@@ -80,6 +85,25 @@ export function AdultsWorld() {
               <ProgressBar value={lsDone} max={LESSONS.length} label="تقدّمك في دروس البلاغة" />
               <Link to="/adults/rhetoric" className="btn btn-primary btn-lg">
                 افتح الدروس <Icon name="next" size={18} />
+              </Link>
+            </article>
+            <article className="track-card">
+              <span className="track-icon track-ink">
+                <Icon name="book" size={26} />
+              </span>
+              <h3>اكتب رسالة</h3>
+              <p>طلب إجازة، ومتابعة طلب، واعتذار عن تأخير. تكتب الرسالة بنفسك، ثم يفحصها ضاد على قائمة تدقيق محدّدة مسبقًا.</p>
+              <ul className="track-points">
+                <li>
+                  <Icon name="check" size={16} /> {EMAILS.length} رسائل · عناصر مطلوبة وأخطاء شائعة
+                </li>
+                <li>
+                  <Icon name="check" size={16} /> نموذج للمقارنة بعد كتابتك
+                </li>
+              </ul>
+              <ProgressBar value={emDone} max={EMAILS.length} label="تقدّمك في كتابة الرسائل" />
+              <Link to="/adults/write" className="btn btn-primary btn-lg">
+                ابدأ الكتابة <Icon name="next" size={18} />
               </Link>
             </article>
           </div>

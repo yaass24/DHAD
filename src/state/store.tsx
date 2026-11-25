@@ -50,6 +50,8 @@ export interface GameState {
   stories: Record<string, StoryProgress>;
   scenarios: Record<string, ScenarioProgress>;
   lessons: Record<string, LessonProgress>;
+  /** writing tasks: the draft and whether every check passed */
+  emails: Record<string, { text: string; done: boolean }>;
   achievements: Record<string, number>;
   last: { kind: 'story' | 'scenario' | 'lesson'; id: string } | null;
 }
@@ -65,6 +67,7 @@ export const initialState: GameState = {
   stories: {},
   scenarios: {},
   lessons: {},
+  emails: {},
   achievements: {},
   last: null,
 };
@@ -86,6 +89,7 @@ export type Action =
   | { type: 'answerLesson'; id: string; step: number; optionId: string; points: number }
   | { type: 'nextLessonStep'; id: string }
   | { type: 'completeLesson'; id: string; score: number }
+  | { type: 'saveEmail'; id: string; text: string; done: boolean }
   | { type: 'unlockAchievements'; ids: string[] }
   | { type: 'reset' };
 
@@ -239,6 +243,10 @@ function reducer(state: GameState, a: Action): GameState {
       if (!p || p.status === 'completed') return state;
       return { ...state, lessons: { ...state.lessons, [a.id]: { ...p, status: 'completed', bestScore: Math.max(p.bestScore, a.score), timesCompleted: p.timesCompleted + 1 } } };
     }
+    case 'saveEmail': {
+      const prev = state.emails?.[a.id];
+      return { ...state, experience: 'adults', emails: { ...state.emails, [a.id]: { text: a.text, done: a.done || !!prev?.done } } };
+    }
     case 'unlockAchievements': {
       const now = Date.now();
       const achievements = { ...state.achievements };
@@ -260,7 +268,7 @@ function load(): GameState {
     if (parsed.version !== 1) return initialState;
     const stories: Record<string, StoryProgress> = {};
     Object.entries(parsed.stories ?? {}).forEach(([k, v]) => (stories[k] = { ...v, solvedScene: v.solvedScene ?? -1 }));
-    return { ...initialState, ...parsed, stories, sound: { ...initialState.sound, ...parsed.sound } };
+    return { ...initialState, ...parsed, stories, lessons: parsed.lessons ?? {}, emails: parsed.emails ?? {}, sound: { ...initialState.sound, ...parsed.sound } };
   } catch {
     return initialState;
   }
