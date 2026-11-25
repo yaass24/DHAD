@@ -4778,15 +4778,13 @@ body[data-world='adults'] {
    HOME: one screen per section, gliding from one to the next
    ========================================================= */
 @media (min-width: 768px) and (min-height: 600px) {
+  /* no snapping: the page scrolls normally, the sections just read as full panels */
   html:has(body[data-page='home']) {
-    scroll-snap-type: y mandatory;
     scroll-padding-top: 0;
   }
   body[data-page='home'] .snap-section {
     min-height: 100vh;
     min-height: 100svh;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     display: grid;
     align-content: center;
     padding-block: clamp(72px, 10vh, 120px);
@@ -4794,18 +4792,9 @@ body[data-world='adults'] {
   body[data-page='home'] .snap-section > .container {
     width: min(1180px, 100% - 48px);
   }
-  /* the footer glides in as its own panel */
-  body[data-page='home'] .footer {
-    scroll-snap-align: end;
-  }
-  .reduce-motion:has(body[data-page='home']) {
-    scroll-snap-type: none;
-  }
 }
+/* smooth only for in-page jumps the user asks for (the section dots) */
 html {
-  scroll-behavior: smooth;
-}
-.reduce-motion {
   scroll-behavior: auto;
 }
 
@@ -4876,4 +4865,255 @@ body[data-page='home'] .scroll-dots {
 }
 .exp-slot {
   display: grid;
+}
+
+/* =========================================================
+   ABOUT — a calm, sectioned introduction to the project
+   ========================================================= */
+.about-hero {
+  background: radial-gradient(circle at 88% 10%, rgba(245, 175, 34, 0.2), transparent 42%), var(--green-900);
+  color: #fff;
+  padding-block: clamp(40px, 7vw, 76px);
+}
+.about-hero-inner {
+  display: grid;
+  grid-template-columns: 1.3fr auto;
+  gap: clamp(24px, 5vw, 60px);
+  align-items: center;
+}
+.about-hero h1 {
+  font-family: var(--font-kids);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 4px 0 12px;
+  color: #fff;
+}
+.about-hero .lead {
+  margin: 0;
+  max-width: 62ch;
+  color: #d9e8e1;
+  font-size: var(--fs-lg);
+  line-height: 2;
+}
+.about-hero-link {
+  margin: 22px 0 0;
+}
+.about-hero-mark {
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  border-radius: var(--r-xl);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.about-narrow {
+  width: min(820px, 100% - 40px);
+}
+.about-narrow h2 {
+  font-family: var(--font-kids);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  color: var(--green-900);
+  margin: 0 0 14px;
+}
+.about-narrow p {
+  margin: 0 0 14px;
+  line-height: 2.1;
+  font-size: var(--fs-md);
+}
+.about-narrow p:last-child {
+  margin-bottom: 0;
+}
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.about-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+}
+.about-card h3 {
+  margin: 0;
+  font-family: var(--font-kids);
+  font-size: var(--fs-2xl);
+  color: var(--green-900);
+}
+.about-card p {
+  margin: 0;
+  line-height: 2;
+  color: var(--ink);
+}
+.about-card-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--green-900);
+  color: #fff;
+}
+.about-card-icon.icon-alt {
+  background: var(--gold);
+  color: var(--ink);
+}
+.about-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.about-list li {
+  padding-inline-start: 14px;
+  border-inline-start: 3px solid var(--mint);
+  line-height: 1.9;
+}
+.about-list b {
+  color: var(--green-900);
+}
+.about-card .text-link {
+  margin-top: 4px;
+  justify-self: start;
+}
+.about-tech {
+  background: var(--ink);
+  color: #fff;
+}
+.about-tech h2 {
+  color: #fff;
+}
+.about-tech p {
+  color: #d9e8e1;
+}
+.about-tech b {
+  color: var(--sun);
+}
+.about-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.note-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.note-card h3 {
+  margin: 0;
+  font-size: var(--fs-lg);
+  color: var(--green-900);
+}
+.note-card p {
+  margin: 0;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+.author-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: start;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+}
+.author-card h2 {
+  margin: 2px 0 4px;
+  font-family: var(--font-kids);
+  font-size: var(--fs-2xl);
+  color: var(--green-900);
+}
+.author-card p {
+  margin: 0 0 10px;
+  line-height: 2;
+}
+.author-card p:last-child {
+  margin-bottom: 0;
+}
+.author-role {
+  font-weight: 700;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+.author-mark {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border-radius: 24px;
+  background: var(--mint);
+}
+.rights-note {
+  margin-top: 20px;
+  padding: 20px 24px;
+  border-radius: var(--r-md);
+  background: var(--sand);
+  border: 1px solid var(--line);
+}
+.rights-note h3 {
+  margin: 0 0 6px;
+  font-size: var(--fs-md);
+  color: var(--green-900);
+}
+.rights-note p {
+  margin: 0 0 10px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+.rights-note p:last-child {
+  margin-bottom: 0;
+}
+.rights-line {
+  font-weight: 700;
+  color: var(--ink);
+}
+.footer-rights {
+  margin: 6px 0 0;
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.01em;
+}
+@media (max-width: 1023px) {
+  .about-notes {
+    grid-template-columns: 1fr;
+  }
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .about-hero-mark {
+    justify-self: start;
+  }
+}
+@media (max-width: 767px) {
+  .about-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .about-card,
+  .note-card {
+    padding: 20px;
+  }
+  .author-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 22px;
+  }
+  .about-hero-mark {
+    padding: 14px;
+  }
+  .about-hero-mark .logo-mark {
+    height: 120px;
+    width: auto;
+  }
 }

@@ -21,6 +21,7 @@ export function Footer() {
           <Link to="/settings">الإعدادات</Link>
         </nav>
         <p className="footer-note">المحتوى مُعَدّ ومراجَع مسبقًا، ويُحفظ تقدّمك على هذا الجهاز فقط.</p>
+        <p className="footer-rights">© 2026 ضاد | DHAD — ياسمين المؤمن · جميع الحقوق محفوظة.</p>
       </div>
     </footer>
   );
