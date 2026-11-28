@@ -104,11 +104,11 @@ function HomeApp() {
       </div>
 
       <div className="home-app-copy">
-        <p className="eyebrow eyebrow-light">ضاد | DHAD · عِش الحكاية، واختر كلماتك.</p>
+        <p className="eyebrow eyebrow-light">ضاد · لعبة لتعلّم العربية الفصحى</p>
         <h1>
-          تعلّم العربية... <span className="hl">وعِش الحكاية!</span>
+          لكل كلمة حكاية، <span className="hl">ولكل اختيار أثر.</span>
         </h1>
-        <p className="home-app-sub">قصص مصوّرة وحوارات تفاعلية تكتشف بها العربية الفصحى، للصغار والكبار.</p>
+        <p className="home-app-sub">رحلة تفاعلية لاكتشاف اللغة العربية من خلال القصص والمغامرات.</p>
       </div>
 
       <ContinueCard />
@@ -141,11 +141,11 @@ export function Home() {
       <section className="hero snap-section" id="s-hero">
         <div className="container hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow eyebrow-light">ضاد | DHAD · عِش الحكاية، واختر كلماتك.</p>
+            <p className="eyebrow eyebrow-light">ضاد · لعبة لتعلّم العربية الفصحى</p>
             <h1>
-              تعلّم العربية... <span className="hl">وعِش الحكاية!</span>
+              لكل كلمة حكاية، <span className="hl">ولكل اختيار أثر.</span>
             </h1>
-            <p className="hero-sub">في ضاد، كل كلمة تُكمل قصة، وكل إجابة تفتح ما بعدها. اكتشف العربية الفصحى من خلال قصص مصوّرة وتدريبات تفاعلية تناسب الصغار والكبار.</p>
+            <p className="hero-sub">رحلة تفاعلية لاكتشاف اللغة العربية من خلال القصص والمغامرات: حكايات مصوّرة للصغار، وتدريبات نحو وبلاغة وكتابة للكبار.</p>
             <div className="hero-ctas">
               <Link to="/start" className="btn btn-sun btn-lg">
                 ابدأ اللعب <Icon name="play" size={18} filled />

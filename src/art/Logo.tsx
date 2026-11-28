@@ -22,7 +22,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
       {!compact && (
         <span className="logo-text">
           <strong>ضاد</strong>
-          <small>DHAD</small>
+          <small>لكل كلمة حكاية</small>
         </span>
       )}
     </span>

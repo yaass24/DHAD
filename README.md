@@ -2,160 +2,139 @@
 
 <img src="public/dhad-logo.png" alt="شعار ضاد" width="140" />
 
-# ضاد | DHAD
+# ضاد
 
-**عِش الحكاية، واختر كلماتك.**
+**لكل كلمة حكاية، ولكل اختيار أثر.**
 
-لعبة تعليمية عربية (فصحى، RTL) تُقوّي اللغة في بيئة العمل: نحوٌ وبلاغة وكتابة رسائل.
+رحلة تفاعلية لاكتشاف اللغة العربية الفصحى: حكايات مصوّرة للصغار، وتدريبات نحو وبلاغة وكتابة للكبار.
 
-[![الموقع](https://img.shields.io/badge/%D8%AC%D8%B1%D9%91%D8%A8%D9%87%D8%A7-yaass24.github.io%2FDHAD-07533E)](https://yaass24.github.io/DHAD/)
+[![Live](https://img.shields.io/badge/Live-yaass24.github.io%2FDHAD-07533E)](https://yaass24.github.io/DHAD/)
 ![React](https://img.shields.io/badge/React-19-0877B8)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-245742)
 ![Vite](https://img.shields.io/badge/Vite-7-F5AF22)
-![No AI](https://img.shields.io/badge/%D8%A8%D9%84%D8%A7%20%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A-C63C32)
 
 </div>
 
 ## لماذا ضاد؟
 
-العربية الفصحى في مكان العمل تتآكل: تقارير تُكتب بالعامية، ومراسلات فيها «أرجوا» و«خمس أيام» و«إنشاء الله»،
-ومصطلحات تقنية تُنقل كما هي. وضاد مشروع يعالج هذا من جهتين:
+العربية الفصحى في مكان العمل تتآكل: تقارير تُكتب بالعامية، ومراسلات فيها «أرجوا» و«خمس أيام» و«إنشاء الله»، ومصطلحات تقنية تُنقل كما هي. وضاد يعالج هذا من جهتين:
 
-- **تعزيز العربية داخل الشركات:** تدريبات على جمل حقيقية من التقارير والمراسلات، لا تمارين مدرسية مجرّدة.
-- **تحسين بيئة العمل:** كتابة رسائل مهنية صحيحة (طلب إجازة، متابعة، اعتذار عن تأخير) تُختصر بها دورات المراجعة
-  وسوء الفهم بين الفرق.
+- **تعزيز العربية داخل الشركات:** تدريبات على جمل من التقارير والمراسلات، لا تمارين مدرسية مجرّدة.
+- **تحسين بيئة العمل:** كتابة رسائل مهنية صحيحة (طلب إجازة، متابعة، اعتذار عن تأخير) تُختصر بها دورات المراجعة وسوء الفهم بين الفرق.
 
-وهو مشروع في **نظم المعلومات الحاسوبية (Computer Information Systems)**: يجمع بين تحليل حاجة واقعية في المنشآت،
-وتصميم تجربة استخدام، وهندسة واجهة أمامية تعمل بلا خادم ولا حسابات، ونشر آليّ عبر GitHub Actions.
+وهو مشروع في **نظم المعلومات الحاسوبية**: تحليل حاجة واقعية في المنشآت، وتصميم تجربة استخدام، وهندسة front-end تعمل بلا backend ولا حسابات، ونشر آليّ عبر GitHub Actions.
 
 ## التجربتان
 
-- **حكايات ضاد** (للصغار): قصص مصوّرة تُكمل فيها حوار الشخصيات بالكلمة المناسبة، مع نجوم وشارات.
+- **حكايات ضاد** (للصغار): قصص مصوّرة يُكمل فيها اللاعب حوار الشخصيات بالكلمة المناسبة، مع تلميحات ونجوم وشارات.
 - **ضاد للكبار**: ثلاثة مسارات —
-  - **تدريبات نحوية:** تكتب الكلمة الناقصة بصيغتها الصحيحة (المثنى وجمع المذكر السالم، النصب والجر، العدد
-    والتمييز والهمزة، إعراب الجملة والممنوع من الصرف)، ولكل خطأ متوقَّع شرحه الإعرابي.
-  - **دروس البلاغة:** السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية — بشواهد من القرآن الكريم
-    والحديث الشريف والشعر العربي، مع موضع كل أسلوب في الكتابة المهنية.
-  - **اكتب رسالة:** تكتب الرسالة بنفسك، ثم تُفحص بقائمة تدقيق محدّدة مسبقًا (عناصر مطلوبة وأخطاء شائعة)،
-    ويُعرض نموذج للمقارنة.
+  - **تدريبات نحوية:** يكتب المتعلّم الكلمة الناقصة بصيغتها الصحيحة (المثنى وجمع المذكر السالم، علامات النصب والجر، العدد والتمييز والهمزة، إعراب الجملة والممنوع من الصرف)، ولكل صيغة خاطئة متوقَّعة شرحها الإعرابي.
+  - **دروس البلاغة:** السجع والجناس، والطباق والمقابلة، والتشبيه والاستعارة، والكناية — بشواهد من القرآن الكريم والحديث الشريف والشعر العربي، مع موضع كل أسلوب في الكتابة المهنية.
+  - **اكتب رسالة:** يكتب المتعلّم الرسالة بنفسه، ثم تُفحص بقائمة تدقيق محدّدة مسبقًا (عناصر مطلوبة وأخطاء شائعة)، ويُعرض نموذج للمقارنة.
 
-> **بلا ذكاء اصطناعي:** كل سؤال وكل شرح وكل عنصر تدقيق مكتوب مسبقًا في ملفات المحتوى ومراجَع. لا نموذج لغوي،
-> ولا خادم، ولا حسابات، ولا تتبّع. ويُحفظ تقدّمك في `localStorage` على جهازك وحده.
+> **بلا ذكاء اصطناعي:** كل سؤال وكل شرح وكل عنصر تدقيق مكتوب مسبقًا في ملفات المحتوى ومراجَع. لا نموذج لغوي، ولا backend، ولا حسابات، ولا تتبّع. ويُحفظ التقدّم في `localStorage` على جهاز المستخدم وحده.
 
----
-
-An interactive Arabic (MSA) learning game with two experiences:
-
-- **حكايات ضاد** (children): illustrated, comic-style stories. Complete each character's line with the right word, get gentle hints, collect stars and badges.
-- **ضاد للكبار** (teens & adults): three tracks — typed grammar drills on sentences from reports and letters, rhetoric lessons with sourced classical examples and their place in professional writing, and a writing track where the learner composes a real message that a predefined checklist then reviews.
-
-No AI, no backend, no accounts. All answers and explanations come from reviewed content files. Progress is saved in `localStorage`.
-
-## Run it
+## التشغيل
 
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # production build → dist/
-npm run preview    # serve the production build
-npm run typecheck  # optional TypeScript check
+npm run build      # نسخة الإنتاج → dist/
+npm run preview    # تشغيل نسخة الإنتاج محليًّا
+npm run typecheck  # فحص TypeScript (اختياري)
 ```
 
-Requires Node 18+. The build uses `base: '/DHAD/'` (override with `DHAD_BASE`) and hash routing (`#/kids/...`), so `dist/` can be served from any static host or sub-folder (GitHub Pages, Netlify, S3, a plain folder) with no rewrite rules.
+يتطلّب Node 18 فأعلى. يبني المشروع على `base: '/DHAD/'` (يمكن تجاوزها بمتغيّر البيئة `DHAD_BASE`) ويستعمل hash routing (`#/kids/...`)، فمجلد `dist/` يُنشر على أي static host أو داخل مجلد فرعي (GitHub Pages، Netlify، S3، أو مجلد عادي) دون أي rewrite rules.
 
-## What's inside
+## المحتوى
 
-| Area | Content |
+| المجال | التفصيل |
 | --- | --- |
-| Children's stories | 5 stories, 25 interactive scenes (beginner ×2, intermediate ×2, advanced ×1) |
-| Grammar drills | 4 drills, 20 typed blanks with targeted feedback for predictable wrong forms |
-| Rhetoric lessons | 4 lessons, 24 questions, 8 concept cards with sourced examples, each with its place in workplace writing |
-| Writing tasks | 3 messages (leave request, follow-up, apology) with 19 predefined checks and model answers |
-| Pages | Home, Choose experience, Kids world, Story library, Story details, Story player, Story completion, Rewards, Adults world, Scenario library, Scenario details, Conversation player, Results, Learning progress, Rhetoric lessons library, Lesson player, Lesson result, How to play, About, My progress, Settings, 404 |
-| Gamification | points, stars, progress bars, story badges, 11 achievements, unlockable stories/scenarios, replay, resume from the saved scene |
-| Sound | Original Web Audio effects (correct, try-again, transition, click, completion, achievement), mute + volume, saved locally, never autoplayed |
-| Accessibility | `lang="ar"` + RTL, semantic landmarks, skip link, keyboard play (keys 1–4 to answer, ← for next), visible focus, live-region feedback, icons + text (never colour alone), reduced-motion setting, 44px+ touch targets |
+| حكايات الصغار | ٥ حكايات، ٢٥ مشهدًا تفاعليًّا (مبتدئ ×٢، متوسط ×٢، متقدّم ×١) |
+| التدريبات النحوية | ٤ تدريبات، ٢٠ فراغًا يُكتب نصًّا، مع تعليق موجّه لكل صيغة خاطئة متوقَّعة |
+| دروس البلاغة | ٤ دروس، ٢٤ سؤالًا، ٨ بطاقات مفاهيم بشواهد موثّقة، ولكل أسلوب موضعه في الكتابة المهنية |
+| مهام الكتابة | ٣ رسائل (طلب إجازة، متابعة، اعتذار عن تأخير) بـ ١٩ عنصر تدقيق ونماذج للمقارنة |
+| التحفيز | نقاط، نجوم، أشرطة تقدّم، شارات للحكايات، ١٢ إنجازًا، فتح تدريجي للمحتوى، إعادة اللعب، ومتابعة من المشهد المحفوظ |
+| الصوت | مؤثرات أصلية بـ Web Audio (إجابة صحيحة، إعادة محاولة، انتقال، نقرة، إكمال، إنجاز)، مع كتم وتحكّم في المستوى يُحفظان محليًّا، ولا تشغيل تلقائيًّا |
+| الوصولية | `lang="ar"` واتجاه RTL، معالم دلالية، رابط تخطٍّ، لعب بلوحة المفاتيح، focus ظاهر، تعليق في live region، أيقونة مع نص (لا لون وحده)، وضع تقليل الحركة، ومساحات لمس ٤٤ بكسل فأكثر |
 
-## Deploy to GitHub Pages
+## النشر على GitHub Pages
 
-The site is published by GitHub Actions from `.github/workflows/deploy.yml`:
-it installs dependencies, runs `npm run build`, and uploads `dist/`.
+يُنشر الموقع آليًّا عبر GitHub Actions من `.github/workflows/deploy.yml`: يثبّت الاعتماديات، ينفّذ `npm run build`، ثم يرفع `dist/`.
 
-One-time setup in the repository: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
-Then every push to `main` redeploys. The live URL is <https://yaass24.github.io/DHAD/>.
+إعداد يُضبط مرة واحدة في المستودع: **Settings → Pages → Build and deployment → Source = GitHub Actions**. بعدها كل push إلى `main` يعيد النشر. الرابط الحيّ: <https://yaass24.github.io/DHAD/>.
 
-### Base path
+### مسار الأساس (base path)
 
-`vite.config.ts` builds with `base: '/DHAD/'`, which is what a project page under
-`yaass24.github.io/DHAD/` needs. Override it for any other host:
+يبني `vite.config.ts` على `base: '/DHAD/'`، وهو ما تحتاجه صفحة مشروع تحت `yaass24.github.io/DHAD/`. ولأي مضيف آخر:
 
 ```bash
-DHAD_BASE=/ npm run build      # a user/organisation page or a custom domain
-DHAD_BASE=./ npm run build     # any subfolder, or opening dist/index.html from disk
+DHAD_BASE=/ npm run build      # صفحة مستخدم أو نطاق خاص
+DHAD_BASE=./ npm run build     # أي مجلد فرعي، أو فتح dist/index.html من القرص
 ```
 
-If you rename the repository, change `/DHAD/` in `vite.config.ts` and in `public/404.html`.
+وإن غُيّر اسم المستودع، يُبدَّل `/DHAD/` في `vite.config.ts` وفي `public/404.html`.
 
-### Routing
+### التوجيه (routing)
 
-The app uses hash routes (`/DHAD/#/kids/play/layan-morning`), so refreshing or
-sharing a deep link works on a static host with no rewrite rules. `public/404.html`
-additionally catches path-style links such as `/DHAD/kids` and forwards them to the
-matching hash route.
+يستعمل التطبيق hash routes (`/DHAD/#/kids/play/layan-morning`)، فالتحديث ومشاركة رابط عميق يعملان على static host بلا rewrite rules. ويلتقط `public/404.html` الروابط بصيغة المسار مثل `/DHAD/kids` ويحوّلها إلى الـ hash المقابل.
 
-### Assets
+### الموارد
 
-Fonts, the emblem and every icon are imported from `src/`, so Vite fingerprints them
-and rewrites their URLs with the base path. Files in `public/` (favicon, PWA icons,
-manifest, service worker) are referenced relatively, so they resolve correctly from
-any base. `public/.nojekyll` keeps GitHub from running Jekyll over the output.
+الخطوط والشعار وكل الأيقونات مستوردة من `src/`، فيبصمها Vite بـ hash ويعيد كتابة مساراتها وفق الـ base. أما ملفات `public/` (favicon، أيقونات PWA، manifest، service worker) فمشار إليها نسبيًّا لتعمل من أي base. ويمنع `public/.nojekyll` تشغيل Jekyll على المخرجات.
 
-## Project structure
+## بنية المشروع
 
 ```text
 src/
-  assets/           DHAD emblem + Thmanyah Serif Text fonts
-  art/              original SVG art: storybook cast (6 expressions each), ضوء mascot,
-                    story backgrounds & props, adult portraits & office backdrops, logo
-  components/       Navbar, Footer, ExperienceCard, StoryCard, ScenarioCard, DialogueBubble,
-                    AnswerOption, FeedbackMessage, ScoreCounter/Stars, ProgressBar, SoundToggle,
-                    LevelSelector, AchievementCard, AchievementToaster, Modal, Sparkles/Confetti, Icon
+  assets/           شعار ضاد وخطوط Thmanyah Serif Text
+  art/              رسوم SVG أصلية: شخصيات الحكايات (٦ تعابير لكل شخصية)، ضوء،
+                    خلفيات الحكايات وعناصرها، صور الكبار وخلفيات المكاتب، الشعار
+  components/       Navbar، Footer، ExperienceCard، StoryCard، ScenarioCard، DialogueBubble،
+                    AnswerOption، FeedbackMessage، ScoreCounter/Stars، ProgressBar، SoundToggle،
+                    LevelSelector، AchievementCard، AchievementToaster، Modal، Sparkles/Confetti، Icon
   features/
-    children/       StoryPlayer — the reusable story engine
-    adults/         ConversationPlayer — the reusable conversation engine
-    achievements/   achievement rules
+    children/       StoryPlayer — محرّك الحكايات
+    adults/         ConversationPlayer و BlankExercise — محرّك التدريبات النحوية
+    achievements/   قواعد الإنجازات
   data/
-    stories/        one file per story
-    scenarios/      one file per scenario
-    index.ts        registry, levels, unlocking, scoring
-  pages/            one component per route
-  state/store.tsx   game state + localStorage persistence
-  utils/            hash router, sound synthesis
-  styles/global.css design system (palette from the DHAD Figma identity)
+    stories/        ملف لكل حكاية
+    scenarios/      ملف لكل تدريب
+    lessons.ts      دروس البلاغة
+    emails.ts       مهام كتابة الرسائل وقوائم تدقيقها
+    index.ts        السجل، المستويات، الفتح التدريجي، احتساب النقاط
+  pages/            مكوّن لكل مسار
+  state/store.tsx   حالة اللعبة وحفظها في localStorage
+  utils/            hash router وتوليد الأصوات
+  styles/global.css نظام التصميم (الألوان من هوية ضاد في Figma)
 ```
 
-## Adding content
+## إضافة محتوى
 
-1. Copy a file in `src/data/stories/` (or `scenarios/`), keep the same shape (`src/types.ts` documents every field).
-2. Add it to `STORIES` (or `SCENARIOS`) in `src/data/index.ts`.
+1. انسخ ملفًا من `src/data/stories/` (أو `scenarios/`) مع الإبقاء على البنية نفسها (`src/types.ts` يوثّق كل حقل).
+2. أضِفه إلى `STORIES` (أو `SCENARIOS`) في `src/data/index.ts`.
 
-That's all: the library, details page, player, completion screen, progress and achievements pick it up automatically. Scenes are composed from:
+وهذا كل شيء: المكتبة وصفحة التفاصيل والمشغّل وشاشة الإكمال والتقدّم والإنجازات تلتقطه تلقائيًّا. وتُركَّب المشاهد من:
 
-- **backgrounds:** `home`, `school`, `classroom`, `park`, `parkEvening`, `library`, `street`, `market`
-- **characters:** `layan`, `khalid`, `noura`, `mom`, `dad`, `teacher`, `librarian`, `seller`, each with an expression (`happy`, `curious`, `surprised`, `confused`, `excited`, `thinking`) and optionally `holding` (`list`, `book`, `notebook`, `openBook`, `bags`, `gift`, `balloons`, `invites`), `backpack`, `scale` and `y` (to place someone further back)
-- **props:** `bag`, `notebook`, `breakfast`, `butterfly`, `birds`, `swing`, `flowers`, `books`, `card`, `scale`, `fruit`, `basket`, `bench`, `chair`, `table`, `gift`, `balloons`, `garland`, `door`, `invites`, `counter`
-- **after the right answer:** `reactionExpressions`, `reactionHolding` and `reactionProps` change the picture to match the `reaction` text.
+- **الخلفيات:** `home`، `school`، `classroom`، `park`، `parkEvening`، `library`، `street`، `market`
+- **الشخصيات:** `layan`، `khalid`، `noura`، `mom`، `dad`، `teacher`، `librarian`، `seller`، لكل واحدة تعبير (`happy`، `curious`، `surprised`، `confused`، `excited`، `thinking`)، واختياريًّا `holding` و`backpack` و`scale` و`y` (لوضع الشخصية في الخلفية)
+- **العناصر:** `bag`، `notebook`، `breakfast`، `butterfly`، `birds`، `swing`، `flowers`، `books`، `card`، `scale`، `fruit`، `basket`، `bench`، `chair`، `table`، `gift`، `balloons`، `garland`، `door`، `invites`، `counter`
+- **بعد الإجابة الصحيحة:** تغيّر `reactionExpressions` و`reactionHolding` و`reactionProps` الصورة لتطابق نص `reaction`.
 
-The speech bubble positions itself over the speaker automatically.
+وتضع فقاعة الحوار نفسها فوق المتحدّث تلقائيًّا.
 
-**Rule of thumb:** everything the narration says is visible must be in the picture, and nothing in the picture should give the answer away.
+**قاعدة عامة:** كل ما يذكر النص أنه مرئي يجب أن يكون في الصورة، ولا شيء في الصورة يكشف الإجابة.
 
-Write the missing word as `____` (four underscores) in `dialogue`. For scenarios, give each option a `rating` (`best` / `acceptable` / `unsuitable`), the five `criteria`, and an explanation. Rate on context, and don't label a valid sentence as a grammar error.
+تُكتب الكلمة الناقصة `____` (أربع شرطات سفلية) داخل `dialogue` في الحكايات، وداخل `blank.sentence` في التدريبات النحوية. ولكل فراغ في التدريبات: `accept` (الصيغ المقبولة، وتُقارن بعد تجريدها من التشكيل)، و`hint` (تلميح لا يعطي الجواب)، و`rule` (القاعدة الإعرابية)، و`misses` (تعليق موجّه لكل صيغة خاطئة متوقَّعة).
 
-## Technical notes
+## ملاحظات تقنية
 
-- **Dependencies:** only `react` and `react-dom` at runtime. Routing (a ~60-line hash router), icons (a small inline SVG set) and animations (CSS) are built in. This keeps the bundle small and avoids extra packages; React Router, Lucide or Motion can be swapped in later without touching game logic.
-- **Styling:** a hand-written design system in `global.css` (CSS variables, no Tailwind build step).
-- **Font:** Thmanyah Serif Text (Regular, Medium, Bold, Black), bundled locally in `src/assets/fonts/` as WOFF subsets (Arabic + basic Latin), so the app works offline with no external font requests.
-- **Scoring:** children get 10 / 5 / 2 points for a scene solved on the first, second or a later try. Stars are based on extra attempts: 3 stars for ≤1, 2 stars for ≤3, otherwise 1. In scenarios only the first choice counts: 20 points for the best option, 8 for an acceptable one, 0 for an unsuitable one.
-- **Unlocking:** the first item of each level is always open, and each next item at that level opens when the previous one is completed.
+- **الاعتماديات:** `react` و`react-dom` فقط في وقت التشغيل. أما التوجيه (hash router في نحو ٦٠ سطرًا) والأيقونات (مجموعة SVG صغيرة) والحركات (CSS) فمبنية داخل المشروع، ما يبقي حجم الـ bundle صغيرًا ويقلّل الحزم الخارجية؛ ويمكن لاحقًا استبدالها بـ React Router أو Lucide أو Motion دون المساس بمنطق اللعبة.
+- **التنسيق:** نظام تصميم مكتوب يدويًّا في `global.css` (CSS variables، بلا خطوة بناء Tailwind).
+- **الخط:** Thmanyah Serif Text بأوزانه الأربعة، مرفق محليًّا في `src/assets/fonts/` بصيغة WOFF مُجزّأة (عربي ولاتيني أساسي)، فيعمل التطبيق دون أي طلب خارجي للخطوط.
+- **النقاط:** في الحكايات ١٠ أو ٥ أو ٢ نقاط حسب المحاولة التي حُلّ فيها المشهد، والنجوم بحسب المحاولات الزائدة (٣ نجوم لمحاولة زائدة فأقل، ونجمتان لثلاث فأقل، وإلا نجمة). وفي التدريبات النحوية ٢٠ نقطة للإجابة الصحيحة من أول محاولة، و١٢ بعد التلميح، ولا شيء عند كشف الجواب.
+- **الفتح التدريجي:** أول عنصر في كل مستوى مفتوح دائمًا، ويُفتح كل عنصر تالٍ عند إكمال سابقه.
+
+---
+
+© 2026 ضاد — ياسمين المؤمن · جميع الحقوق محفوظة.

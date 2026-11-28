@@ -3848,6 +3848,10 @@ label {
   margin: 0 0 4px;
   font-size: 0.82rem;
 }
+.home-app-copy h1 .hl,
+.hero h1 .hl {
+  display: block;
+}
 .home-app-copy h1 {
   font-family: var(--font-kids);
   font-weight: 900;

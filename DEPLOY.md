@@ -1,54 +1,46 @@
-# رفع ضاد إلى GitHub Pages
+# النشر والصيانة
 
-الموقع المطلوب: <https://yaass24.github.io/DHAD/>
-المستودع: <https://github.com/yaass24/DHAD> (الفرع `main`)
+- الموقع: <https://yaass24.github.io/DHAD/>
+- المستودع: <https://github.com/yaass24/DHAD> (الفرع `main`)
 
-المستودع فيه حاليًا ملفان فقط: `README.md` و`.github/workflows/deploy.yml`.
-ملف الـ workflow الموجود عندك سليم ويكفي، فإن رفعت بقية الملفات فقط سيعمل البناء.
+## كيف يُنشر الموقع
 
----
-
-## الطريقة الأولى: من المتصفح (الأسهل)
-
-1. فُكّ ضغط `DHAD-github-pages.zip`.
-2. افتح <https://github.com/yaass24/DHAD> ثم **Add file → Upload files**.
-3. اسحب **كل الملفات والمجلدات ما عدا مجلد `.github`**:
-   `src`, `public`, `index.html`, `package.json`, `tsconfig.json`, `vite.config.ts`, `README.md`, `DEPLOY.md`, `.gitignore`
-   (المتصفح لا يرفع المجلدات التي تبدأ بنقطة، ولا حاجة إليه لأن الـ workflow موجود عندك.)
-4. اكتب في خانة الوصف: `Add full DHAD app` ثم **Commit changes**.
-5. مرة واحدة فقط: **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-6. تابع التنفيذ في تبويب **Actions**. عند اكتمال الخطوتين (build ثم deploy) افتح الرابط.
-
-## الطريقة الثانية: من الطرفية (أمر واحد)
+النشر آليّ. كل push إلى `main` يشغّل workflow في `.github/workflows/deploy.yml`:
+يثبّت الاعتماديات، ينفّذ `npm run build`، ثم يرفع مجلد `dist/` إلى GitHub Pages.
 
 ```bash
-unzip DHAD-github-pages.zip -d DHAD-ready
-cd DHAD-ready
-bash deploy-to-github.sh
-```
-
-أو يدويًا:
-
-```bash
-git init
-git remote add origin https://github.com/yaass24/DHAD.git
-git checkout -b main
 git add -A
-git commit -m "Add full DHAD app and fix GitHub Pages deployment"
-git push -u origin main --force
+git commit -m "وصف التغيير"
+git push
 ```
 
-`--force` هنا آمن لأن المستودع لا يحتوي إلا على README وملف workflow.
+ثم تُتابَع الحالة في تبويب **Actions**. البناء والنشر يأخذان دقيقة إلى ثلاث دقائق.
 
----
+إعداد يُضبط مرة واحدة فقط (وهو مضبوط بالفعل):
+**Settings → Pages → Build and deployment → Source = GitHub Actions**.
 
-## بعد الرفع
+## قبل الدفع
 
-- أول بناء يأخذ دقيقة إلى ثلاث دقائق.
-- إن ظهر خطأ في تبويب Actions، افتح الخطوة الحمراء وانسخ آخر عشرة أسطر.
-- إن فتحت الصفحة وظهرت بيضاء، جرّب تحديثًا قسريًا (Ctrl+Shift+R) لأن متصفحك قد يكون حافظًا لنسخة 404 القديمة.
+```bash
+npm run typecheck
+npm run build
+npm run preview
+```
 
-## إن غيّرت اسم المستودع
+## إن ظهر خطأ
 
-بدّل `/DHAD/` في `vite.config.ts` وفي `public/404.html` إلى الاسم الجديد.
-للنشر على نطاق خاص أو صفحة مستخدم: `DHAD_BASE=/ npm run build`.
+- **فشل في تبويب Actions:** افتح الخطوة الحمراء واقرأ آخر أسطرها؛ الخطأ غالبًا في `npm run build`، ويظهر محليًّا بالأمر نفسه.
+- **صفحة بيضاء بعد النشر:** حدّث تحديثًا قسريًّا (Ctrl+Shift+R)؛ قد يكون المتصفح حافظًا لنسخة قديمة.
+- **روابط أو صور مكسورة:** تحقّق من `base` في `vite.config.ts`؛ يجب أن يطابق اسم المستودع.
+
+## إن غُيّر اسم المستودع أو المضيف
+
+بدّل `/DHAD/` في `vite.config.ts` وفي `public/404.html`. وللنشر على نطاق خاص أو صفحة مستخدم:
+
+```bash
+DHAD_BASE=/ npm run build
+```
+
+## الإعلانات
+
+`src/config/ads.ts` فارغ، فلا يُحمَّل أي كود إعلانات ما دام `client` خاليًا. ولتفعيل AdSense: ضع معرّف الناشر ومعرّفات الوحدات في الملف، وانسخ `public/ads.txt.example` إلى `public/ads.txt` بعد وضع المعرّف فيه. وراجِع حينها سطر «غير تجاري» في صفحة «عن ضاد».

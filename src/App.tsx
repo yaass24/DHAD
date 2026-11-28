@@ -73,7 +73,7 @@ function Shell() {
   const title = match ? match.route.title : 'صفحة غير موجودة';
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    document.title = title + ' | ضاد DHAD';
+    document.title = title + ' · ضاد';
     document.body.dataset.world = path.startsWith('/kids') ? 'kids' : path.startsWith('/adults') ? 'adults' : 'main';
     document.body.dataset.immersive = immersive ? '1' : '0';
     document.body.dataset.page = path === '/' ? 'home' : 'page';
