@@ -22,7 +22,7 @@ export function AdultsWorld() {
       <section className="adults-hero world-hero">
         <div className="container adults-hero-inner">
           <div>
-            <p className="eyebrow eyebrow-light">ضاد للكبار</p>
+            <p className="eyebrow eyebrow-light">ضاد في العمل</p>
             <h1>عربيتك... بقواعدها</h1>
             <p className="lead">ثلاثة مسارات على جمل من التقارير والمراسلات، لكل إجابة فيها سببها.</p>
             <div className="world-stats">

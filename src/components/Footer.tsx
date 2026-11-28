@@ -14,7 +14,7 @@ export function Footer() {
         </div>
         <nav aria-label="روابط التذييل" className="footer-links">
           <Link to="/kids">حكايات ضاد</Link>
-          <Link to="/adults">ضاد للكبار</Link>
+          <Link to="/adults">ضاد في العمل</Link>
           <Link to="/how">كيف نلعب؟</Link>
           <Link to="/about">عن ضاد</Link>
           <Link to="/progress">تقدّمي</Link>

@@ -5,7 +5,7 @@ import { LessonCard } from '../components/LessonCard';
 export function LessonLibrary() {
   return (
     <div className="theme-adults">
-      <PageHeader title="دروس البلاغة" lead="شرح موجز بشواهده، ثم أسئلة تطبيقية." back="/adults" backLabel="ضاد للكبار" tone="adults" />
+      <PageHeader title="دروس البلاغة" lead="شرح موجز بشواهده، ثم أسئلة تطبيقية." back="/adults" backLabel="ضاد في العمل" tone="adults" />
       <section className="section">
         <div className="container lesson-list">
           {LESSONS.map((l, i) => (

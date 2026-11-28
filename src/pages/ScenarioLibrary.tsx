@@ -11,7 +11,7 @@ export function ScenarioLibrary() {
   const shown = SCENARIOS.filter((x) => s.adultsLevel === 'all' || x.level === s.adultsLevel);
   return (
     <div className="theme-adults">
-      <PageHeader title="التدريبات النحوية" lead="يُفتح التدريب التالي في كل مستوى بعد إكمال الذي قبله." back="/adults" backLabel="ضاد للكبار" tone="adults" />
+      <PageHeader title="التدريبات النحوية" lead="يُفتح التدريب التالي في كل مستوى بعد إكمال الذي قبله." back="/adults" backLabel="ضاد في العمل" tone="adults" />
       <section className="section">
         <div className="container">
           <LevelSelector name="lib-adults-level" value={s.adultsLevel} hints={ADULTS_LEVEL_HINT} onChange={(level) => dispatch({ type: 'setLevel', audience: 'adults', level })} />

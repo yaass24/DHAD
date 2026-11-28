@@ -41,7 +41,7 @@ const ROUTES: Route[] = [
   { path: '/kids/complete/:id', render: (p) => <StoryComplete id={p.id} />, title: 'اكتملت الحكاية' },
   { path: '/achievements', render: () => <Rewards />, title: 'الإنجازات' },
   { path: '/kids/rewards', render: () => <Rewards />, title: 'الإنجازات' },
-  { path: '/adults', render: () => <AdultsWorld />, title: 'ضاد للكبار' },
+  { path: '/adults', render: () => <AdultsWorld />, title: 'ضاد في العمل' },
   { path: '/adults/library', render: () => <ScenarioLibrary />, title: 'مكتبة المواقف' },
   { path: '/adults/scenario/:id', render: (p) => <ScenarioDetails id={p.id} />, title: 'تفاصيل التدريب' },
   { path: '/adults/play/:id', render: (p) => <ScenarioPlay id={p.id} />, title: 'التدريب', immersive: true },

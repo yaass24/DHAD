@@ -25,7 +25,7 @@ export function Start() {
           <button type="button" className={'choose-card choose-kids' + (experience === 'kids' ? ' is-last' : '')} onClick={() => go('kids')}>
             <KidScene background="park" characters={[{ id: 'layan', expression: 'excited', x: 330 }, { id: 'khalid', expression: 'happy', x: 500, flip: true }]} props={[{ id: 'swing', x: 680, y: 410 }]} />
             <span className="choose-body">
-              <strong>ضاد الصغير · حكايات ضاد</strong>
+              <strong>حكايات ضاد · للأطفال</strong>
               <span>قصص مصوّرة ملوّنة، وكلمات ناقصة تُكمل بها الحوار، ونجوم ومكافآت.</span>
               <span className="choose-cta">
                 ادخل عالم الحكايات <Icon name="next" size={18} />
@@ -36,10 +36,10 @@ export function Start() {
           <button type="button" className={'choose-card choose-adults' + (experience === 'adults' ? ' is-last' : '')} onClick={() => go('adults')}>
             <AdultStage backdrop="interview" speaker="fahad" mood="smile" />
             <span className="choose-body">
-              <strong>ضاد للكبار</strong>
-              <span>مساران: تدريبات نحوية على جمل من العمل مع شرح الإعراب، ودروس بلاغة في السجع والطباق والتشبيه والكناية.</span>
+              <strong>ضاد في العمل</strong>
+              <span>ثلاثة مسارات: تدريبات نحوية على جمل من العمل مع شرح الإعراب، ودروس بلاغة، وكتابة رسائل مهنية.</span>
               <span className="choose-cta">
-                ادخل قسم الكبار <Icon name="next" size={18} />
+                ادخل مسار العمل <Icon name="next" size={18} />
               </span>
             </span>
             {experience === 'adults' && <span className="last-tag">آخر تجربة لك</span>}

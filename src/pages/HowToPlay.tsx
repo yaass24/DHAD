@@ -21,7 +21,7 @@ export function HowToPlay() {
         <div className="container how-grid">
           <article className="panel how-kids">
             <h2>
-              <Icon name="book" /> الحكايات · للصغار
+              <Icon name="book" /> الحكايات · للأطفال
             </h2>
             <ol className="how-steps">
               <li>اقرأ المشهد، وابحث عن الكلمة الناقصة في كلام الشخصية.</li>
@@ -36,7 +36,7 @@ export function HowToPlay() {
 
           <article className="panel how-adults">
             <h2>
-              <Icon name="chat" /> تدريبات النحو · للكبار
+              <Icon name="chat" /> تدريبات النحو · في العمل
             </h2>
             <ol className="how-steps">
               <li>اقرأ الجملة الناقصة، واكتب الكلمة بصيغتها الصحيحة.</li>
@@ -49,7 +49,7 @@ export function HowToPlay() {
 
           <article className="panel how-adults">
             <h2>
-              <Icon name="sparkle" /> الدروس والرسائل · للكبار
+              <Icon name="sparkle" /> الدروس والرسائل · في العمل
             </h2>
             <ol className="how-steps">
               <li>في درس البلاغة: اقرأ الشرح وشاهده، ثم أجب عن ستة أسئلة.</li>

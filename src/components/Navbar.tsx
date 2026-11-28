@@ -7,7 +7,7 @@ import { useGame } from '../state/store';
 const LINKS = [
   { to: '/', label: 'الرئيسية' },
   { to: '/kids', label: 'حكايات ضاد' },
-  { to: '/adults', label: 'ضاد للكبار' },
+  { to: '/adults', label: 'ضاد في العمل' },
   { to: '/how', label: 'كيف نلعب؟' },
 ];
 

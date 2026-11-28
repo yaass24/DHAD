@@ -145,7 +145,7 @@ export function Home() {
             <h1>
               لكل كلمة حكاية، <span className="hl">ولكل اختيار أثر.</span>
             </h1>
-            <p className="hero-sub">رحلة تفاعلية لاكتشاف اللغة العربية من خلال القصص والمغامرات: حكايات مصوّرة للصغار، وتدريبات نحو وبلاغة وكتابة للكبار.</p>
+            <p className="hero-sub">رحلة تفاعلية لاكتشاف اللغة العربية من خلال القصص والمغامرات: حكايات مصوّرة للأطفال، وتدريبات نحو وبلاغة وكتابة الرسائل في بيئة العمل.</p>
             <div className="hero-ctas">
               <Link to="/start" className="btn btn-sun btn-lg">
                 ابدأ اللعب <Icon name="play" size={18} filled />
@@ -193,7 +193,7 @@ export function Home() {
               <ExperienceCard
                 variant="kids"
               title="حكايات ضاد"
-              subtitle="قصص مصوّرة للصغار"
+              subtitle="قصص مصوّرة للأطفال"
               description="انطلق مع ليان وخالد ونورة، وأكمل الحوار بالكلمة المناسبة في كل مشهد."
               meta={`${STORIES.length} قصص · ${STORIES.reduce((n, s) => n + s.scenes.length, 0)} مشهدًا تفاعليًا`}
               cta="ابدأ الحكايات"
@@ -204,8 +204,8 @@ export function Home() {
             <Reveal variant="up" className="exp-slot" delay={0.12}>
               <ExperienceCard
                 variant="adults"
-              title="ضاد للكبار"
-              subtitle="تدريب لغوي للكبار"
+              title="ضاد في العمل"
+              subtitle="تدريب لغوي مهني"
               description="اكتب الكلمة الناقصة في جمل من العمل واعرف سبب إعرابها، وتعلّم أساليب البلاغة، واكتب رسائلك المهنية."
               meta={`${SCENARIOS.length} تدريبات · ${LESSONS.length} دروس · ${EMAILS.length} رسائل`}
               cta="ابدأ التدريب"
@@ -233,12 +233,12 @@ export function Home() {
             <Reveal as="li" delay={0.08}>
               <span className="step-num">2</span>
               <h3>اختر كلمتك</h3>
-              <p>في الحكايات تختار الكلمة المناسبة، وفي تدريبات الكبار تكتبها بصيغتها الصحيحة.</p>
+              <p>في الحكايات تختار الكلمة المناسبة، وفي تدريبات العمل تكتبها بصيغتها الصحيحة.</p>
             </Reveal>
             <Reveal as="li" delay={0.16}>
               <span className="step-num">3</span>
               <h3>افهم السبب</h3>
-              <p>يظهر سبب الصواب: المعنى في الحكايات، والإعراب في تدريبات الكبار.</p>
+              <p>يظهر سبب الصواب: المعنى في الحكايات، والإعراب في تدريبات العمل.</p>
             </Reveal>
             <Reveal as="li" delay={0.24}>
               <span className="step-num">4</span>
@@ -258,7 +258,7 @@ export function Home() {
         <div className="container cast-wrap">
           <Reveal className="section-head">
             <h2 id="cast-title">تعرّف على أصدقاء ضاد</h2>
-            <p>شخصيات أصلية ترافق الصغار في حكايات من الحياة اليومية.</p>
+            <p>شخصيات أصلية ترافق الأطفال في حكايات من الحياة اليومية.</p>
           </Reveal>
           <div className="cast-grid">
             {CAST.map((c, i) => (

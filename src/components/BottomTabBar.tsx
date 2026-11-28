@@ -4,7 +4,7 @@ import { Icon, type IconName } from './Icon';
 const TABS: { to: string; label: string; icon: IconName }[] = [
   { to: '/', label: 'الرئيسية', icon: 'home' },
   { to: '/kids', label: 'الحكايات', icon: 'book' },
-  { to: '/adults', label: 'الكبار', icon: 'chat' },
+  { to: '/adults', label: 'في العمل', icon: 'chat' },
   { to: '/progress', label: 'تقدّمي', icon: 'chart' },
 ];
 

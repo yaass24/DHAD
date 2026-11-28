@@ -16,7 +16,7 @@ export function EmailLibrary() {
         title="اكتب رسالة"
         lead="تكتب الرسالة بنفسك، ثم تُراجَع على قائمة تدقيق معدّة مسبقًا: عناصر لا بدّ منها، وأخطاء شائعة. وهو تدقيق محدود لا شامل، وبلا ذكاء اصطناعي."
         back="/adults"
-        backLabel="ضاد للكبار"
+        backLabel="ضاد في العمل"
         tone="adults"
       />
       <section className="section">

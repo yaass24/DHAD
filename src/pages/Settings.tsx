@@ -81,7 +81,7 @@ export function Settings() {
             </h2>
             <h3 className="h-small">حكايات ضاد</h3>
             <LevelSelector name="set-kids" value={s.kidsLevel} hints={KIDS_LEVEL_HINT} onChange={(level) => dispatch({ type: 'setLevel', audience: 'kids', level })} />
-            <h3 className="h-small">التدريبات النحوية (للكبار)</h3>
+            <h3 className="h-small">التدريبات النحوية (في العمل)</h3>
             <LevelSelector name="set-adults" value={s.adultsLevel} hints={ADULTS_LEVEL_HINT} onChange={(level) => dispatch({ type: 'setLevel', audience: 'adults', level })} />
           </div>
 

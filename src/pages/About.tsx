@@ -59,7 +59,7 @@ export function About() {
               <span className="about-card-icon">
                 <Icon name="book" size={24} />
               </span>
-              <h3>حكايات ضاد للصغار</h3>
+              <h3>حكايات ضاد للأطفال</h3>
               <p>
                 {STORIES.length} حكايات تفاعلية مستوحاة من مواقف الحياة اليومية، تساعد الأطفال على تعلّم الفصحى من خلال الشخصيات والقصص والاختيارات اللغوية، في {scenes} مشهدًا مصوّرًا.
               </p>
@@ -71,7 +71,7 @@ export function About() {
               <span className="about-card-icon icon-alt">
                 <Icon name="chat" size={24} />
               </span>
-              <h3>ضاد للكبار</h3>
+              <h3>ضاد في العمل</h3>
               <p>ثلاثة مسارات على جمل من بيئة العمل:</p>
               <ul className="about-list">
                 <li>
@@ -85,7 +85,7 @@ export function About() {
                 </li>
               </ul>
               <Link to="/adults" className="text-link">
-                ادخل قسم الكبار <Icon name="next" size={16} />
+                ادخل مسار العمل <Icon name="next" size={16} />
               </Link>
             </Reveal>
           </div>
