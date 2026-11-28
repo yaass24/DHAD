@@ -40,7 +40,7 @@ export function KidsWorld() {
               <Link to="/kids/library" className="btn btn-sun btn-lg">
                 مكتبة الحكايات <Icon name="next" size={18} />
               </Link>
-              <Link to="/kids/rewards" className="btn btn-ghost-light btn-lg">
+              <Link to="/achievements" className="btn btn-ghost-light btn-lg">
                 <Icon name="trophy" size={18} /> نجومي ومكافآتي
               </Link>
             </div>

@@ -89,7 +89,7 @@ export function StoryComplete({ id }: { id: string }) {
             >
               <Icon name="replay" size={18} /> أعد القراءة
             </button>
-            <Link to="/kids/rewards" className="btn btn-outline">
+            <Link to="/achievements" className="btn btn-outline">
               <Icon name="trophy" size={18} /> مكافآتي
             </Link>
             <Link to="/kids/library" className="btn btn-text">

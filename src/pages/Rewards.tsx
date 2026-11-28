@@ -15,7 +15,7 @@ export function Rewards() {
   const list = ACHIEVEMENTS.filter((a) => a.audience !== 'adults');
   return (
     <div className="theme-kids">
-      <PageHeader title="نجومي ومكافآتي" lead="كل حكاية تُكملها تمنحك نجومًا وشارة. اجمعها كلها مع ضوء!" back="/kids" backLabel="حكايات ضاد" tone="kids">
+      <PageHeader title="الإنجازات" lead="نجوم الحكايات وشاراتها، وإنجازات ضاد كلها في مكان واحد." back="/progress" backLabel="تقدّمي" tone="kids">
         <Dhaw mood="excited" size={86} className="ph-dhaw floaty" />
       </PageHeader>
       <section className="section">

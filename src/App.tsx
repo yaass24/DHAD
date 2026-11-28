@@ -21,7 +21,6 @@ import { ScenarioLibrary } from './pages/ScenarioLibrary';
 import { ScenarioDetails } from './pages/ScenarioDetails';
 import { ScenarioPlay } from './pages/ScenarioPlay';
 import { ScenarioResults } from './pages/ScenarioResults';
-import { LearningProgress } from './pages/LearningProgress';
 import { MyProgress } from './pages/MyProgress';
 import { Settings } from './pages/Settings';
 import { LessonLibrary } from './pages/LessonLibrary';
@@ -40,7 +39,8 @@ const ROUTES: Route[] = [
   { path: '/kids/story/:id', render: (p) => <StoryDetails id={p.id} />, title: 'تفاصيل الحكاية' },
   { path: '/kids/play/:id', render: (p) => <StoryPlay id={p.id} />, title: 'الحكاية', immersive: true },
   { path: '/kids/complete/:id', render: (p) => <StoryComplete id={p.id} />, title: 'اكتملت الحكاية' },
-  { path: '/kids/rewards', render: () => <Rewards />, title: 'نجومي ومكافآتي' },
+  { path: '/achievements', render: () => <Rewards />, title: 'الإنجازات' },
+  { path: '/kids/rewards', render: () => <Rewards />, title: 'الإنجازات' },
   { path: '/adults', render: () => <AdultsWorld />, title: 'ضاد للكبار' },
   { path: '/adults/library', render: () => <ScenarioLibrary />, title: 'مكتبة المواقف' },
   { path: '/adults/scenario/:id', render: (p) => <ScenarioDetails id={p.id} />, title: 'تفاصيل التدريب' },
@@ -51,7 +51,7 @@ const ROUTES: Route[] = [
   { path: '/adults/rhetoric', render: () => <LessonLibrary />, title: 'دروس البلاغة' },
   { path: '/adults/lesson/:id', render: (p) => <LessonPlay id={p.id} />, title: 'درس بلاغة', immersive: true },
   { path: '/adults/lesson-done/:id', render: (p) => <LessonComplete id={p.id} />, title: 'نتيجة الدرس' },
-  { path: '/adults/progress', render: () => <LearningProgress />, title: 'تقدّمي التعليمي' },
+  { path: '/adults/progress', render: () => <MyProgress />, title: 'تقدّمي' },
   { path: '/how', render: () => <HowToPlay />, title: 'كيف نلعب؟' },
   { path: '/about', render: () => <About />, title: 'عن ضاد' },
   { path: '/progress', render: () => <MyProgress />, title: 'تقدّمي' },

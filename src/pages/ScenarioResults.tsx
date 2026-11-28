@@ -149,8 +149,8 @@ export function ScenarioResults({ id }: { id: string }) {
                 التدريب التالي: {nextSc.title} <Icon name="next" size={18} />
               </Link>
             )}
-            <Link to="/adults/progress" className="btn btn-outline">
-              <Icon name="chart" size={18} /> تقدّمي التعليمي
+            <Link to="/progress" className="btn btn-outline">
+              <Icon name="chart" size={18} /> تقدّمي
             </Link>
             <Link to="/adults/library" className="btn btn-text">
               كل التدريبات

@@ -108,8 +108,8 @@ export function AdultsWorld() {
             </article>
           </div>
           <p className="center">
-            <Link to="/adults/progress" className="text-link">
-              <Icon name="chart" size={16} /> تقدّمي التعليمي
+            <Link to="/progress" className="text-link">
+              <Icon name="chart" size={16} /> تقدّمي
             </Link>
           </p>
         </div>

@@ -39,7 +39,7 @@ export function AchievementToaster() {
           <div>
             <strong>إنجاز جديد: {a.title}</strong>
             <p>{a.description}</p>
-            <Link to={a.audience === 'adults' ? '/adults/progress' : '/kids/rewards'} className="toast-link">
+            <Link to="/achievements" className="toast-link">
               عرض الإنجازات
             </Link>
           </div>
